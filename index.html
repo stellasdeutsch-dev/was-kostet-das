@@ -597,6 +597,66 @@ footer{padding:28px 0 10px;text-align:center;font-size:12px;color:var(--muted)}
   .coin{transition:none}
 }
 
+
+/* ===== mini dictionary ===== */
+:root{--der:#6a3fd0;--die:#c2654f;--das:#2b8b80;--derbg:#efe8fd;--diebg:#fbece7;--dasbg:#e3f4f1}
+.dict-top{display:flex;flex-direction:column;gap:12px;align-items:center;margin-top:24px}
+.tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;max-width:100%;padding:4px 2px}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:none;border:0;cursor:pointer;border-radius:999px;padding:9px 14px;background:var(--soft);color:var(--ink2);font-weight:700;font-size:12px;letter-spacing:.03em;transition:background .25s,color .25s,box-shadow .25s}
+.tabs button small{font-weight:600;color:var(--muted);margin-left:4px}
+.tabs button[aria-pressed="true"]{background:var(--pill);color:#fff;box-shadow:0 10px 20px -10px rgba(146,66,236,.8)}
+.tabs button[aria-pressed="true"] small{color:#ecdcff}
+.modes{display:inline-flex;background:var(--soft);border-radius:14px;padding:4px;gap:4px}
+.modes button{border:0;cursor:pointer;border-radius:10px;padding:9px 14px;background:transparent;color:var(--ink2);font-weight:700;font-size:12px}
+.modes button[aria-pressed="true"]{background:#fff;color:var(--vt);box-shadow:0 6px 14px -8px rgba(60,40,90,.5)}
+.legend{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;font-size:12px;color:var(--ink2)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{font-style:normal;font-family:var(--mono);font-weight:600;font-size:12px;padding:2px 8px;border-radius:6px}
+.a-der{color:var(--der);background:var(--derbg)}.a-die{color:var(--die);background:var(--diebg)}.a-das{color:var(--das);background:var(--dasbg)}
+.a-pl{color:var(--ink2);background:#f0edf4}
+.dgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px}
+@media (min-width:760px){.dgrid{grid-template-columns:repeat(3,1fr);gap:14px}}
+@media (min-width:1000px){.dgrid{grid-template-columns:repeat(4,1fr)}}
+.dcard{perspective:900px;cursor:pointer;border:0;padding:0;background:none;text-align:left;font:inherit;color:inherit;animation:dIn .45s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i,0)*35ms)}
+@keyframes dIn{from{opacity:0;transform:translateY(14px) scale(.96)}}
+.dcard .in{display:grid;transition:transform .6s cubic-bezier(.3,.7,.2,1.1);transform-style:preserve-3d;height:100%}
+.dcard.flipped .in{transform:rotateY(180deg)}
+.face{grid-area:1/1;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:#fff;border-radius:18px;padding:14px 12px 12px;box-shadow:0 14px 26px -22px rgba(60,40,90,.6),inset 0 0 0 1px #eee8f5;display:flex;flex-direction:column;gap:4px;min-height:168px;position:relative}
+.face.back{transform:rotateY(180deg);background:linear-gradient(160deg,#faf6ff,#f2e9fd);box-shadow:0 14px 26px -22px rgba(60,40,90,.6),inset 0 0 0 1.5px #e2d1f8}
+.dcard:hover .face.front{box-shadow:0 18px 30px -20px rgba(90,50,150,.55),inset 0 0 0 1px #e1d4f3}
+.d-ic{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;margin-bottom:4px}
+.d-ic svg{width:26px;height:26px}
+.d-ic.sym svg{width:34px;height:34px}
+.face .say.round{position:absolute;top:10px;right:10px;width:32px;height:32px}
+.d-w{font-family:var(--mono);font-weight:600;font-size:15px;line-height:1.3;overflow-wrap:anywhere;hyphens:manual}
+.d-w .art{margin-right:5px}
+.d-pl{font-size:11px;color:var(--muted)}
+.d-ru{font-size:13px;color:var(--ink2);margin-top:auto;font-weight:600}
+.d-hint{font-size:10px;color:#c3bccd;letter-spacing:.08em;text-transform:uppercase;font-weight:700}
+.back .d-ru{font-size:16px;color:var(--ink);margin-top:0}
+.back .d-ex{font-family:var(--mono);font-weight:600;font-size:12.5px;color:var(--vt);line-height:1.4;margin-top:6px}
+.back .d-ext{font-size:12px;color:var(--muted)}
+.quiz .d-w .blank{display:inline-block;min-width:2.6em;border-bottom:2px dashed #cfc2e3;color:transparent;margin-right:5px;transition:.3s}
+.quiz .dcard.solved .d-w .blank{color:inherit;border-color:transparent}
+.q-btns{display:flex;gap:5px;margin-top:auto}
+.q-btns button{flex:1;border:0;cursor:pointer;border-radius:9px;padding:8px 0;font-family:var(--mono);font-weight:600;font-size:12.5px;background:#f4f1f8;color:var(--ink2);transition:.2s}
+.q-btns button:hover{background:#ece5f6}
+.q-btns button.no{background:var(--badbg);color:var(--bad);animation:shake .4s;cursor:default}
+.dcard.solved .face.front{box-shadow:0 14px 26px -22px rgba(60,40,90,.6),inset 0 0 0 2px #7fd1a8}
+.dcard.solved .q-btns{display:none}
+.dcard.solved .d-ru{display:block}
+.quiz .dcard:not(.solved) .d-ru{visibility:hidden}
+.d-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:18px}
+.d-score{font-size:12px;font-weight:700;color:var(--ink2);letter-spacing:.04em}
+.d-score b{color:var(--ok)}
+.d-meter{flex:1;min-width:120px;height:6px;border-radius:6px;background:#eee8f5;overflow:hidden}
+.d-meter i{display:block;height:100%;width:0;background:linear-gradient(90deg,#7fd1a8,#23945f);transition:width .5s}
+.d-tip{margin:22px auto 0;max-width:36em;background:var(--soft);border-radius:18px;padding:16px 18px;font-size:14px;color:var(--ink2);display:flex;gap:12px;align-items:flex-start}
+.d-tip b{color:var(--ink)}
+.d-tip .num{font-size:30px;line-height:1;font-weight:600;background:var(--bgrad);-webkit-background-clip:text;background-clip:text;color:transparent}
+@media (prefers-reduced-motion:reduce){.dcard .in{transition:none}}
+
 /* reveal */
 .rv.pre{opacity:0;transform:translateY(28px)}
 .rv.pre.in{opacity:1;transform:none;transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
@@ -784,6 +844,28 @@ footer{padding:28px 0 10px;text-align:center;font-size:12px;color:var(--muted)}
           <p style="margin:0">Каждую фразу можно послушать. <b>Каждое правило разобрано по шагам.</b> В конце касса, которую надо пройти самому.</p>
         </div>
       </div>
+    </section>
+
+    <!-- MINI DICTIONARY -->
+    <section class="sheet rv" id="dict">
+      <p class="eyebrow">Мини-словарь</p>
+      <h2 class="h2"><span class="l">28 слов</span> <span class="b">для магазина</span></h2>
+      <p class="lead">Перед тем как спрашивать цену, неплохо знать, у чего. Двадцать восемь слов. Больше в магазине не понадобится. Ну, почти.</p>
+      <div class="dict-top">
+        <div class="tabs" id="dTabs" role="toolbar" aria-label="Темы словаря"></div>
+        <div class="modes" role="group" aria-label="Режим">
+          <button type="button" id="mLearn" aria-pressed="true">Карточки</button>
+          <button type="button" id="mQuiz" aria-pressed="false">Угадай артикль</button>
+        </div>
+        <div class="legend"><span><i class="a-der">der</i>мужской</span><span><i class="a-die">die</i>женский</span><span><i class="a-das">das</i>средний</span></div>
+      </div>
+      <div class="dgrid" id="dGrid"></div>
+      <div class="d-bar">
+        <span class="d-score" id="dInfo">Нажми на карточку — она перевернётся. Там пример из жизни.</span>
+        <div class="d-meter" id="dMeter" hidden><i id="dMeterI"></i></div>
+        <button type="button" class="linkbtn" id="dShuffle" style="color:var(--vt)">Перемешать</button>
+      </div>
+      <div class="d-tip"><span class="num">!</span><span>Артикль учи вместе со словом. <b>Не «Käse — сыр», а «der Käse».</b> Отдельно он не запоминается. Я пробовал. Потом der, die, das приходится угадывать. Как булочки на витрине.</span></div>
     </section>
 
     <!-- STEP 1 -->
@@ -1464,6 +1546,134 @@ footer{padding:28px 0 10px;text-align:center;font-size:12px;color:var(--muted)}
   ];
   $('#cards').innerHTML = CS.map(function(c){ return '<div class="card"><span class="k">'+c[0]+'</span><span class="d">'+c[1]+'</span><span class="r">'+c[2]+'</span><button class="say" type="button" data-say="'+c[1]+'">'+sp()+'Hören</button></div>'; }).join('');
 
+
+
+  /* ===== mini dictionary ===== */
+  var IC = {
+    store:'M3 10h18M4 10l1.5-5h13L20 10M5 10v9h14v-9M10 19v-5h4v5',
+    cart:'M3 4h2l2.4 11h10.2L20 8H6.2M9 20.5a1 1 0 100-2 1 1 0 000 2zM17 20.5a1 1 0 100-2 1 1 0 000 2z',
+    basket:'M4 10h16l-1.6 9H5.6zM8 10l3-6M16 10l-3-6M9 13.5v3M12 13.5v3M15 13.5v3',
+    shelf:'M4 4v16M20 4v16M4 9.5h16M4 15.5h16M7 9.5V6h3v3.5M13 15.5V12h4v3.5',
+    offer:'M3 12l9-9h7v7l-9 9zM15.5 8.5h.01M9 15l5-5',
+    register:'M4 11h16v9H4zM7 11V5h8v6M17 8h3v3M8 14.5h2M12 14.5h2M8 17.5h8',
+    receipt:'M6 3h12v18l-2-1.5-2 1.5-2-1.5-2 1.5-2-1.5L6 21zM9 8h6M9 12h6M9 16h3',
+    bag:'M5 8h14l-1 12H6zM9 8V6a3 3 0 016 0v2',
+    card:'M3 6h18v12H3zM3 10h18M6 14.5h4',
+    cash:'M3 7h18v10H3zM12 14.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM6 10v4M18 10v4',
+    bottle:'M10 3h4v3l2 3v12H8V9l2-3zM8 13h8',
+    price:'M3 12l9-9h7v7l-9 9zM15.5 8.5h.01',
+    euro:'M12 20a8 8 0 100-16 8 8 0 000 16zM15 9.2a3.5 3.5 0 100 5.6M8.5 11h5M8.5 13h5',
+    cent:'M12 20a8 8 0 100-16 8 8 0 000 16zM14.5 9.5a3 3 0 100 5M12 7.5v9',
+    change:'M9 14a5 5 0 100-10 5 5 0 000 10zM13.5 10.6A5 5 0 1115 20',
+    down:'M12 4v14M6 12l6 6 6-6',
+    up:'M12 20V6M6 12l6-6 6 6',
+    egg:'M12 3c-4 0-7 6.5-7 10.5a7 7 0 0014 0C19 9.5 16 3 12 3z',
+    buy:'M5 8h14l-1 12H6zM9 8V6a3 3 0 016 0v2M12 11.5v5M9.5 14h5',
+    pay:'M3 6h18v12H3zM3 10h18M13.5 14.5l1.8 1.8 3.2-3.3',
+    ask:'M3 12l9-9h7v7l-9 9zM11.5 10.5a1.8 1.8 0 113 1.4c-.6.4-1 .8-1 1.6M13.5 16h.01',
+    need:'M12 21s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 11c0 5.5-7 10-7 10z'
+  };
+  var SYMS = {apple:'0 0 60 60', milk:'0 0 60 60', cheese:'0 0 60 60', bun:'0 0 70 56', pretzel:'0 0 60 60'};
+  // [cat, article, word, plural, ru, icon, example, exampleRu]
+  var DICT = [
+    ['shop','der','Super\u00ADmarkt','die Supermärkte','супермаркет','store','Der Supermarkt ist bis 22 Uhr offen.','Супермаркет открыт до 22.'],
+    ['shop','die','Bäckerei','die Bäckereien','пекарня','bun','Die Bäckerei öffnet um sechs.','Пекарня открывается в шесть.'],
+    ['shop','der','Einkaufs\u00ADwagen','die Einkaufswagen','тележка','cart','Für den Einkaufswagen brauche ich einen Euro.','Для тележки нужен евро.'],
+    ['shop','der','Korb','die Körbe','корзина','basket','Ich nehme einen Korb.','Я возьму корзину.'],
+    ['shop','das','Regal','die Regale','полка','shelf','Die Milch steht im Regal links.','Молоко на полке слева.'],
+    ['shop','das','Angebot','die Angebote','акция','offer','Äpfel sind heute im Angebot.','Яблоки сегодня по акции.'],
+    ['kasse','die','Kasse','die Kassen','касса','register','Kasse drei ist jetzt offen.','Третья касса открылась.'],
+    ['kasse','der','Kassen\u00ADbon','die Kassenbons','чек','receipt','Möchten Sie den Kassenbon?','Чек нужен?'],
+    ['kasse','die','Tüte','die Tüten','пакет','bag','Brauchen Sie eine Tüte?','Пакет нужен?'],
+    ['kasse','die','Karte','die Karten','карта','card','Kann ich mit Karte zahlen?','Можно картой?'],
+    ['kasse','das','Bargeld','—','наличные','cash','Ich habe kein Bargeld.','У меня нет наличных.'],
+    ['kasse','das','Pfand','—','залог за бутылку','bottle','Auf die Flasche gibt es 25 Cent Pfand.','За бутылку вернут 25 центов.'],
+    ['geld','der','Preis','die Preise','цена','price','Der Preis steht am Regal.','Цена указана на полке.'],
+    ['geld','der','Euro','die Euro','евро','euro','Das kostet zwei Euro.','Это стоит два евро.'],
+    ['geld','der','Cent','die Cent','цент','cent','Noch neunzig Cent, bitte.','Ещё девяносто центов.'],
+    ['geld','das','Rückgeld','—','сдача','change','Hier ist Ihr Rückgeld.','Вот ваша сдача.'],
+    ['geld','','billig','','дешёвый','down','Die Äpfel sind heute billig.','Яблоки сегодня дешёвые.'],
+    ['geld','','teuer','','дорогой','up','Der Käse ist zu teuer.','Сыр слишком дорогой.'],
+    ['food','der','Apfel','die Äpfel','яблоко','apple','Ein Kilo Äpfel, bitte.','Кило яблок, пожалуйста.'],
+    ['food','das','Brötchen','die Brötchen','булочка','bun','Zwei Brötchen, bitte.','Две булочки, пожалуйста.'],
+    ['food','die','Brezel','die Brezeln','крендель','pretzel','Ich hätte gern eine Brezel.','Мне бы крендель.'],
+    ['food','die','Milch','—','молоко','milk','Wo finde ich die Milch?','Где молоко?'],
+    ['food','der','Käse','—','сыр','cheese','200 Gramm Käse, bitte.','200 грамм сыра.'],
+    ['food','das','Ei','die Eier','яйцо','egg','Ich brauche zehn Eier.','Мне нужно десять яиц.'],
+    ['verb','','kaufen','','покупать','buy','Ich kaufe Brot.','Я покупаю хлеб.'],
+    ['verb','','bezahlen','','платить','pay','Ich bezahle mit Karte.','Я плачу картой.'],
+    ['verb','','kosten','','стоить','ask','Was kostet das?','Сколько это стоит?'],
+    ['verb','','brauchen','','нуждаться','need','Ich brauche keine Tüte.','Мне не нужен пакет.']
+  ];
+  var CATS = [['all','Все'],['shop','Магазин'],['kasse','Касса'],['geld','Деньги'],['food','Продукты'],['verb','Глаголы']];
+  var dCat = 'all', dMode = 'learn', dOrder = DICT.map(function(_,k){ return k; }), solvedSet = {};
+  var dGrid = $('#dGrid'), dTabs = $('#dTabs');
+  function icon(d){
+    var col = d[1] ? 'var(--' + d[1] + ')' : 'var(--ink2)', bg = d[1] ? 'var(--' + d[1] + 'bg)' : '#f0edf4';
+    if(SYMS[d[5]]) return '<span class="d-ic sym" style="background:' + bg + '"><svg viewBox="' + SYMS[d[5]] + '"><use href="#' + d[5] + '"/></svg></span>';
+    return '<span class="d-ic" style="background:' + bg + ';color:' + col + '"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="' + IC[d[5]] + '"/></svg></span>';
+  }
+  function full(d){ return (d[1] ? d[1] + ' ' : '') + d[2].replace(/\u00AD/g, ''); }
+  function visible(){
+    return dOrder.filter(function(k){ var d = DICT[k]; return (dCat === 'all' || d[0] === dCat) && (dMode === 'learn' || d[1]); });
+  }
+  function renderTabs(){
+    dTabs.innerHTML = CATS.map(function(c){
+      var n = DICT.filter(function(d){ return (c[0] === 'all' || d[0] === c[0]) && (dMode === 'learn' || d[1]); }).length;
+      return n ? '<button type="button" data-cat="' + c[0] + '" aria-pressed="' + (dCat === c[0]) + '">' + c[1] + '<small>' + n + '</small></button>' : '';
+    }).join('');
+  }
+  function renderDict(){
+    var list = visible();
+    if(!list.length){ dCat = 'all'; renderTabs(); list = visible(); }
+    dGrid.classList.toggle('quiz', dMode === 'quiz');
+    dGrid.innerHTML = list.map(function(k,i){
+      var d = DICT[k], art = d[1] ? '<span class="art a-' + d[1] + '" style="background:none;padding:0">' + d[1] + '</span>' : '';
+      var pl = d[3] ? (d[3] === '—' ? 'без мн. числа' : 'мн.: ' + d[3]) : (d[0] === 'verb' ? 'глагол' : 'прилагательное');
+      if(dMode === 'quiz'){
+        var ok = solvedSet[k];
+        return '<div class="dcard' + (ok ? ' solved' : '') + '" data-k="' + k + '" style="--i:' + i + '"><div class="in"><div class="face front">' + icon(d)
+          + '<button class="say round" type="button" data-say="' + full(d) + '" aria-label="Послушать">' + sp() + '</button>'
+          + '<div class="d-w"><span class="blank a-' + d[1] + '" style="background:none">' + d[1] + '</span>' + d[2] + '</div><div class="d-ru">' + d[4] + '</div>'
+          + '<div class="q-btns"><button type="button" data-a="der">der</button><button type="button" data-a="die">die</button><button type="button" data-a="das">das</button></div></div></div></div>';
+      }
+      return '<div class="dcard" role="button" tabindex="0" aria-label="' + full(d) + ' — ' + d[4] + '. Перевернуть" data-k="' + k + '" style="--i:' + i + '"><div class="in">'
+        + '<div class="face front">' + icon(d) + '<button class="say round" type="button" data-say="' + full(d) + '" aria-label="Послушать">' + sp() + '</button>'
+        + '<div class="d-w">' + art + d[2] + '</div><div class="d-pl">' + pl + '</div><div class="d-ru">' + d[4] + '</div><div class="d-hint">тапни ↻</div></div>'
+        + '<div class="face back"><div class="d-ru">' + d[4] + '</div><div class="d-pl">' + full(d) + (d[3] && d[3] !== '—' ? ' · ' + d[3] : '') + '</div>'
+        + '<div class="d-ex">' + d[6] + '</div><div class="d-ext">' + d[7] + '</div>'
+        + '<button class="say" type="button" data-say="' + d[6] + '" style="margin-top:auto">' + sp() + 'Пример</button></div></div></div>';
+    }).join('');
+    updScore();
+  }
+  function updScore(){
+    var meter = $('#dMeter'), info = $('#dInfo');
+    if(dMode === 'learn'){ meter.hidden = true; info.innerHTML = 'Нажми на карточку — она перевернётся. Там пример из жизни.'; return; }
+    var nouns = DICT.map(function(_,k){ return k; }).filter(function(k){ return DICT[k][1]; }), got = nouns.filter(function(k){ return solvedSet[k]; }).length;
+    meter.hidden = false; $('#dMeterI').style.width = (got / nouns.length * 100) + '%';
+    info.innerHTML = got === nouns.length ? '<b>Все ' + got + ' артиклей угаданы.</b> Теперь ты знаешь больше, чем половина очереди.' : 'Угадано: <b>' + got + '</b> из ' + nouns.length;
+  }
+  dTabs.addEventListener('click', function(e){ var b = e.target.closest('button'); if(!b) return; dCat = b.getAttribute('data-cat'); renderTabs(); renderDict(); });
+  function setMode(m){ dMode = m; $('#mLearn').setAttribute('aria-pressed', m === 'learn'); $('#mQuiz').setAttribute('aria-pressed', m === 'quiz'); renderTabs(); renderDict(); }
+  $('#mLearn').addEventListener('click', function(){ setMode('learn'); });
+  $('#mQuiz').addEventListener('click', function(){ setMode('quiz'); });
+  $('#dShuffle').addEventListener('click', function(){ dOrder = shuffle(dOrder); if(dMode === 'quiz') solvedSet = {}; renderDict(); });
+  function flip(card){ if(dMode === 'learn') card.classList.toggle('flipped'); }
+  dGrid.addEventListener('click', function(e){
+    if(e.target.closest('.say')) return;
+    var card = e.target.closest('.dcard'); if(!card) return;
+    var qb = e.target.closest('.q-btns button');
+    if(dMode === 'quiz'){
+      if(!qb || qb.classList.contains('no')) return;
+      var k = +card.getAttribute('data-k'), d = DICT[k];
+      if(qb.getAttribute('data-a') === d[1]){ solvedSet[k] = true; card.classList.add('solved'); speak(full(d), null, .9); updScore(); }
+      else qb.classList.add('no');
+      return;
+    }
+    flip(card);
+  });
+  dGrid.addEventListener('keydown', function(e){ if((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('dcard')){ e.preventDefault(); flip(e.target); } });
+  renderTabs(); renderDict();
 
   /* ===== v2 motion ===== */
   function fmtE(v){ return v.toFixed(2).replace('.', ','); }
