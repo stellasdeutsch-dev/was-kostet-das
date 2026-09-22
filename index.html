@@ -1,0 +1,1305 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Was kostet das?</title>
+<meta name="description" content="Урок немецкого A1: как спросить цену, понять ответ и пройти кассу в Германии. От Stellas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,500&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<meta property="og:title" content="Was kostet das? — урок немецкого A1">
+<meta property="og:description" content="Как спросить цену, понять ответ и пройти кассу в Германии. С озвучкой, тренажёрами и симулятором кассы.">
+<meta property="og:image" content="https://stellasdeutsch-dev.github.io/was-kostet-das/media/supermarket.jpg">
+<link rel="icon" type="image/png" href="media/favicon.png">
+<link rel="apple-touch-icon" href="media/favicon.png">
+<style>
+:root{
+  --bg:#f3f1f7; --sheet:#ffffff; --ink:#2d2934; --ink2:#5f5a6b; --muted:#9a94a7; --lilac:#aaa0bf; --line:#ebe7f1; --soft:#f7f5fa;
+  --v1:#c97bff; --v2:#9444ef; --v3:#5e2ba3; --vt:#7440c9; --vbg:#f1e8fd;
+  --b1:#ead0bd; --b2:#c29a7f; --b3:#99705a;
+  --dark:#1d1a22; --dark2:#2a2631; --dark3:#3a3543;
+  --ok:#23945f; --okbg:#e5f6ee; --bad:#d8453f; --badbg:#fdeceb;
+  --f:'Montserrat','Helvetica Neue',Arial,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;
+  --pill:linear-gradient(135deg,#cf86ff 0%,#9b48f1 52%,#7a2fe2 100%);
+  --vgrad:linear-gradient(90deg,#9453ea,#5e2ba3);
+  --bgrad:linear-gradient(180deg,#e3c1aa 0%,#b98b6f 100%);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+button{font-family:inherit;color:inherit}
+:focus-visible{outline:3px solid #b27cf5;outline-offset:3px;border-radius:10px}
+.defs{position:absolute;width:0;height:0;overflow:hidden}
+
+.wrap{max-width:1120px;margin:0 auto;padding-inline:16px}
+.stack{display:grid;gap:18px;padding-block:14px 120px}
+.sheet{position:relative;background:var(--sheet);border-radius:28px;padding:34px 20px;box-shadow:0 30px 60px -38px rgba(80,50,130,.28);overflow:hidden}
+@media (min-width:760px){.sheet{padding:56px 48px}.stack{gap:24px}}
+
+/* ---------- type ---------- */
+.eyebrow{display:flex;justify-content:center;align-items:center;gap:10px;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--b2);margin:0 0 14px}
+.eyebrow::before,.eyebrow::after{content:"";width:28px;height:1px;background:var(--b1)}
+.h2{margin:0;font-weight:800;text-transform:uppercase;font-size:clamp(22px,6.4vw,40px);line-height:1.14;letter-spacing:.01em;text-align:center;text-wrap:balance}
+.h2 .l{font-weight:500;color:var(--lilac)}
+.h2 .b{background:var(--vgrad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.h2 .br{background:var(--bgrad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{max-width:34em;margin:16px auto 0;text-align:center;color:var(--ink2);font-size:15px;text-wrap:pretty}
+.lead b,.txt b{color:var(--ink);font-weight:700}
+.de{font-family:var(--mono);font-weight:600;color:var(--vt);background:var(--vbg);padding:1px 6px;border-radius:6px;white-space:nowrap}
+.txt p{margin:0 0 10px}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:17px 28px;border-radius:999px;background:var(--pill);color:#fff;font-weight:700;font-size:12px;letter-spacing:.09em;text-transform:uppercase;text-decoration:none;border:0;cursor:pointer;box-shadow:0 16px 34px -10px rgba(146,66,236,.62),inset 0 1px 0 rgba(255,255,255,.4);transition:transform .2s ease,box-shadow .2s ease}
+.btn:hover{transform:translateY(-2px);box-shadow:0 20px 40px -10px rgba(146,66,236,.72),inset 0 1px 0 rgba(255,255,255,.4)}
+.btn svg{width:14px;height:14px;flex:none}
+.btn-ghost{background:#fff;color:var(--vt);box-shadow:inset 0 0 0 1.5px #e2d4f7}
+.btn-ghost:hover{box-shadow:inset 0 0 0 1.5px #c9aef1}
+.btn-sm{padding:11px 18px;font-size:11px}
+.pill-b{display:inline-block;padding:10px 22px;border-radius:999px;background:linear-gradient(135deg,#ecd3c1,#c49a7e);color:#fff;font-weight:800;font-size:12px;letter-spacing:.1em;text-transform:uppercase;box-shadow:0 10px 24px -10px rgba(170,120,90,.7)}
+.pill-v{display:inline-block;padding:9px 18px;border-radius:999px;background:var(--pill);color:#fff;font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;box-shadow:0 10px 24px -10px rgba(146,66,236,.6)}
+.say{display:inline-flex;align-items:center;justify-content:center;gap:7px;border:0;cursor:pointer;background:var(--soft);color:var(--ink2);border-radius:10px;padding:8px 12px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;transition:background .2s,color .2s}
+.say svg{width:15px;height:15px}
+.say:hover{background:var(--vbg);color:var(--vt)}
+.say.is-playing{background:var(--vbg);color:var(--vt)}
+.say.is-playing svg .w{animation:wave .8s ease-in-out infinite}
+@keyframes wave{50%{opacity:.2}}
+.say.round{width:36px;height:36px;padding:0;border-radius:50%}
+
+/* ---------- nav ---------- */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;padding-top:10px}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:12px;background:rgba(255,255,255,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:18px;padding:10px 10px 10px 14px;box-shadow:0 10px 30px -22px rgba(80,50,130,.5)}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo{width:34px;height:34px;flex:none;background:var(--vgrad);-webkit-mask:url(media/logo.png) center/contain no-repeat;mask:url(media/logo.png) center/contain no-repeat}
+.brand b{display:block;font-weight:900;letter-spacing:.14em;font-size:14px;line-height:1}
+.brand small{display:block;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-top:3px}
+
+/* ---------- hero ---------- */
+.hero{padding-top:30px;padding-bottom:36px;text-align:center}
+.meta{display:flex;justify-content:center;align-items:stretch;gap:0;margin:0 auto 18px;max-width:420px}
+.meta div{flex:1;padding:0 10px}
+.meta div+div{border-left:1px solid var(--line)}
+.meta small{display:block;font-size:10px;color:var(--muted);font-weight:500}
+.meta b{display:block;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.02em;white-space:nowrap}
+@media (min-width:760px){.meta b{font-size:13px;letter-spacing:.04em}}
+.h1{margin:0 auto;font-weight:900;text-transform:uppercase;font-size:clamp(34px,10.4vw,78px);line-height:1.02;letter-spacing:.005em;color:#4a4652;text-wrap:balance;max-width:14ch}
+.h1 span{display:inline-block;background:linear-gradient(180deg,#7b7683,#3d3945);-webkit-background-clip:text;background-clip:text;color:transparent;animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
+.h1 span:nth-child(2){animation-delay:.12s}.h1 span:nth-child(3){animation-delay:.24s}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}}
+.hero .sub{max-width:30em;margin:16px auto 0;color:var(--ink2);text-wrap:pretty}
+.hero .pill-v{margin-top:18px}
+.badge{display:none;position:absolute;top:18px;right:14px;width:56px;height:84px;border-radius:6px;background:linear-gradient(160deg,#f1dccd,#c49a7e 60%,#a67a61);box-shadow:0 14px 26px -12px rgba(150,100,70,.7),inset 0 1px 0 rgba(255,255,255,.6);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;transform:rotate(6deg)}
+.badge b{font-size:28px;font-weight:900;line-height:1;text-shadow:0 1px 0 rgba(0,0,0,.08)}
+.badge small{font-size:8px;letter-spacing:.14em;font-weight:700;text-transform:uppercase}
+@media (min-width:760px){.badge{display:flex;top:34px;right:40px;width:80px;height:118px}.badge b{font-size:40px}.badge small{font-size:10px}}
+
+.scene{position:relative;margin:28px auto 0;max-width:760px;min-height:420px;display:flex;justify-content:center;align-items:flex-start}
+.col{position:absolute;bottom:0;width:78px;height:auto;filter:drop-shadow(0 20px 20px rgba(80,60,110,.15))}
+.col.l{left:-34px}.col.r{right:-34px}
+@media (min-width:600px){.col{width:110px}.col.l{left:0}.col.r{right:0}}
+@media (min-width:900px){.col{width:132px}.col.l{left:-10px}.col.r{right:-10px}}
+.floor{position:absolute;left:-10%;right:-10%;bottom:-12px;height:60px;background:radial-gradient(50% 60% at 50% 40%,rgba(170,140,210,.25),transparent 70%)}
+
+.receipt{position:relative;z-index:2;width:min(270px,78%);background:#fff;padding:20px 18px 28px;font-family:var(--mono);font-size:11.5px;line-height:1.75;color:#3b3742;text-align:left;box-shadow:0 30px 50px -24px rgba(60,40,90,.45),0 0 0 1px #efecf3;animation:printIn 1.6s cubic-bezier(.3,.7,.2,1) .3s both;transform-origin:top center;
+  -webkit-mask:linear-gradient(#000,#000) top/100% calc(100% - 8px) no-repeat,radial-gradient(circle at 6px 0,transparent 5px,#000 5.5px) bottom/12px 8px repeat-x;
+  mask:linear-gradient(#000,#000) top/100% calc(100% - 8px) no-repeat,radial-gradient(circle at 6px 0,transparent 5px,#000 5.5px) bottom/12px 8px repeat-x}
+@keyframes printIn{from{clip-path:inset(0 0 100% 0);transform:translateY(-14px)}to{clip-path:inset(0 0 0 0)}}
+.receipt .c{text-align:center}
+.receipt .hd{font-weight:600;letter-spacing:.12em}
+.receipt .ln{display:flex;justify-content:space-between;gap:10px}
+.receipt hr{border:0;border-top:1px dashed #cfc9d8;margin:6px 0}
+.receipt .sum{font-weight:600;font-size:13px}
+.receipt .muted{color:#9a94a7}
+.bub{position:absolute;z-index:3;background:#fff;border-radius:16px;padding:10px 14px;font-size:12.5px;font-weight:600;box-shadow:0 18px 30px -16px rgba(60,40,90,.4);display:flex;align-items:center;gap:8px;animation:bubIn .6s cubic-bezier(.2,.9,.3,1.3) both}
+.bub small{display:block;font-size:10px;color:var(--muted);font-weight:500}
+.bub .ic{width:26px;height:26px;border-radius:50%;flex:none;display:grid;place-items:center;color:#fff;font-size:12px;font-weight:800}
+.bub.b1{left:0;top:40px;animation-delay:1.7s}
+.bub.b2{right:0;top:190px;animation-delay:2.1s}
+.bub.b3{left:4%;bottom:34px;animation-delay:2.5s}
+@keyframes bubIn{from{opacity:0;transform:scale(.7) translateY(10px)}}
+.hero-cta{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:30px}
+
+/* ---------- story ---------- */
+.story-track{display:grid;grid-auto-flow:column;grid-auto-columns:100%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin-top:26px;gap:16px;scroll-behavior:smooth}
+.story-track::-webkit-scrollbar{display:none}
+.slide{scroll-snap-align:start;background:var(--soft);border-radius:22px;padding:24px 20px;display:grid;gap:8px;align-content:start}
+.slide .num{font-size:44px;font-weight:500;line-height:1;background:var(--bgrad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.slide p{margin:0;font-size:16px;line-height:1.55}
+.slide p.punch{font-weight:700;color:var(--vt)}
+@media (min-width:760px){.story-track{grid-auto-columns:calc(50% - 8px)}.slide{padding:30px}}
+.pager{display:flex;align-items:center;justify-content:center;gap:22px;margin-top:22px}
+.pager button{width:46px;height:46px;border-radius:10px;border:1.5px solid #dccbf5;background:#fff;display:grid;place-items:center;cursor:pointer;color:var(--v2)}
+.pager button.fill{border:0;background:var(--pill);color:#fff;box-shadow:0 12px 24px -10px rgba(146,66,236,.7)}
+.pager button:disabled{opacity:.35;cursor:default}
+.pager svg{width:18px;height:18px}
+.count{font-weight:800;font-size:28px;color:var(--v2);min-width:70px;text-align:center;font-variant-numeric:tabular-nums}
+.count small{font-size:12px;color:var(--lilac);font-weight:600}
+
+/* ---------- stats ---------- */
+.stats{position:relative;border-radius:28px;padding:36px 20px 150px;background:linear-gradient(140deg,#efe1ff 0%,#c895f6 38%,#a262ec 72%,#8e4de6 100%);color:#fff;overflow:hidden;text-align:center}
+.stats::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 20% 10%,rgba(255,255,255,.5),transparent 60%),radial-gradient(40% 40% at 90% 80%,rgba(255,255,255,.25),transparent 70%);pointer-events:none}
+.stats h3{position:relative;margin:0;font-weight:800;text-transform:uppercase;font-size:clamp(17px,4.6vw,26px);line-height:1.25;letter-spacing:.03em}
+.stats h3 span{font-weight:500;display:block}
+.sgrid{position:relative;display:grid;grid-template-columns:1fr 1fr;margin:26px auto 0;max-width:620px}
+.sgrid div{padding:18px 8px}
+.sgrid div:nth-child(odd){border-right:1px solid rgba(255,255,255,.35)}
+.sgrid div:nth-child(-n+2){border-bottom:1px solid rgba(255,255,255,.35)}
+.sgrid b{display:block;font-size:clamp(44px,13vw,76px);font-weight:600;line-height:1;font-variant-numeric:tabular-nums;text-shadow:0 6px 20px rgba(90,30,160,.25)}
+.sgrid small{display:block;margin-top:8px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;line-height:1.35}
+.panel{position:relative;margin:-120px 8px 0;background:var(--dark);color:#d7d2df;border-radius:22px;padding:26px 20px;box-shadow:0 30px 60px -30px rgba(20,10,40,.7)}
+.panel h3{margin:0 0 14px;color:#fff;text-transform:uppercase;font-weight:800;font-size:clamp(18px,5vw,28px);line-height:1.2;display:flex;gap:12px;align-items:center}
+.panel h3 i{flex:none;width:22px;height:22px;border:1.5px solid #6b6475;border-radius:5px;display:grid;place-items:center;font-style:normal;font-size:14px;color:#a39bb0}
+.panel .cols{display:grid;gap:14px;font-size:13.5px}
+.panel b{color:#fff}
+@media (min-width:760px){.panel{margin:-120px 48px 0;padding:32px 40px}.panel .cols{grid-template-columns:1fr 1fr;gap:34px}}
+
+/* ---------- explainer ---------- */
+.ex{margin-top:28px;border-radius:24px;background:linear-gradient(180deg,#faf8fd,#f3effa);padding:22px 16px 18px;box-shadow:inset 0 0 0 1px #ede7f6}
+@media (min-width:760px){.ex{padding:34px 36px 26px}}
+.ex-stage{min-height:230px;display:grid;place-items:center;text-align:center;gap:16px}
+.ex-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:16px;flex-wrap:wrap}
+.dots{display:flex;gap:6px}
+.dots i{width:26px;height:5px;border-radius:5px;background:#e3daf1;transition:background .3s,width .3s}
+.dots i.on{background:var(--v2);width:40px}
+.ex-btns{display:flex;gap:8px}
+.ex-btns button{border:0;cursor:pointer;height:40px;min-width:40px;padding:0 14px;border-radius:10px;background:#fff;box-shadow:inset 0 0 0 1.5px #e2d4f7;color:var(--vt);font-weight:700;font-size:11px;letter-spacing:.08em;text-transform:uppercase;display:inline-flex;align-items:center;gap:6px}
+.ex-btns button.next{background:var(--pill);color:#fff;box-shadow:0 10px 20px -10px rgba(146,66,236,.8)}
+.ex-btns svg{width:14px;height:14px}
+.cap{margin-top:14px;min-height:4.8em;font-size:14.5px;color:var(--ink2);text-align:center;max-width:36em;margin-inline:auto}
+.cap p{margin:0;animation:fade .45s ease both}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}}
+.phrase{font-family:var(--mono);font-weight:600;font-size:clamp(20px,6vw,34px);color:var(--ink);line-height:1.3}
+.phrase .chg{color:var(--v2);display:inline-block;animation:pop .55s cubic-bezier(.2,.9,.3,1.4) both;background:linear-gradient(transparent 62%,#ead9fd 62%)}
+@keyframes pop{from{transform:translateY(-10px) scale(.8);opacity:0}}
+.buns{display:flex;justify-content:center;gap:10px;height:66px;align-items:flex-end}
+.buns svg{width:70px;height:56px;transition:transform .5s cubic-bezier(.2,.9,.3,1.3),opacity .4s}
+.buns svg.off{transform:scale(.3) translateY(30px);opacity:0;width:0;margin:0 -5px}
+.tagline{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--b2)}
+
+/* price explainer */
+.ptag{position:relative;display:inline-flex;align-items:baseline;gap:2px;padding:14px 26px 14px 38px;background:#fff;border-radius:10px 22px 22px 10px;box-shadow:0 16px 30px -16px rgba(60,40,90,.4),inset 0 0 0 1.5px #eee8f5;font-family:var(--mono);font-weight:600;font-size:clamp(40px,12vw,64px);line-height:1;color:var(--ink)}
+.ptag::before{content:"";position:absolute;left:14px;top:50%;width:10px;height:10px;border-radius:50%;margin-top:-5px;box-shadow:inset 0 0 0 2px var(--b2)}
+.ptag span{position:relative;display:inline-block;transition:color .4s,transform .4s}
+.ptag .k{font-size:.55em;color:var(--muted);margin-left:6px}
+.ptag .ord{position:absolute;top:-22px;left:50%;transform:translateX(-50%) scale(.3);width:22px;height:22px;border-radius:50%;background:var(--pill);color:#fff;font-size:11px;font-family:var(--f);font-weight:800;display:grid;place-items:center;opacity:0;transition:.45s cubic-bezier(.2,.9,.3,1.4)}
+.words{display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;gap:4px 8px;font-family:var(--mono);font-weight:600;font-size:clamp(17px,5.2vw,26px);min-height:1.5em}
+.words span{opacity:0;transform:translateY(10px);transition:opacity .45s,transform .45s,color .4s}
+.words .grp{display:inline-flex;gap:0;opacity:1;transform:none}
+.words .grp span{margin:0}
+.ex-price[data-step="1"] .p-e,.ex-price[data-step="2"] .p-e,.ex-price[data-step="3"] .p-e{color:var(--v2)}
+.ex-price[data-step="1"] .w-e,.ex-price[data-step="1"] .w-euro,
+.ex-price[data-step="2"] .w-e,.ex-price[data-step="2"] .w-euro,
+.ex-price[data-step="3"] .w-e,.ex-price[data-step="3"] .w-euro{opacity:1;transform:none}
+.ex-price[data-step="2"] .p-u,.ex-price[data-step="2"] .p-t,.ex-price[data-step="3"] .p-u,.ex-price[data-step="3"] .p-t{color:var(--b3)}
+.ex-price[data-step="2"] .ord,.ex-price[data-step="3"] .ord{opacity:1;transform:translateX(-50%) scale(1)}
+.ex-price[data-step="2"] .w-u,.ex-price[data-step="2"] .w-und,.ex-price[data-step="2"] .w-t,
+.ex-price[data-step="3"] .w-u,.ex-price[data-step="3"] .w-und,.ex-price[data-step="3"] .w-t{opacity:1;transform:none}
+.ex-price[data-step="2"] .w-und{transition-delay:.45s}
+.ex-price[data-step="2"] .w-t{transition-delay:.9s}
+.w-u{color:var(--b3)}.w-t{color:var(--b3)}.w-und{color:var(--muted)}
+.ex-price[data-step="3"] .w-euro{opacity:.35!important;text-decoration:line-through;text-decoration-color:var(--bad)}
+.hint3{font-size:12px;color:var(--muted);font-weight:600;opacity:0;transition:opacity .4s .3s}
+.ex-price[data-step="3"] .hint3{opacity:1}
+
+/* article explainer */
+.arts{display:grid;gap:10px;width:100%;max-width:640px}
+@media (min-width:640px){.arts{grid-template-columns:repeat(3,1fr)}}
+.lead-in{font-family:var(--mono);font-weight:600;font-size:clamp(16px,4.6vw,22px);color:var(--ink2);opacity:0;transform:translateY(8px);transition:.45s}
+.ex-art:not([data-step="0"]) .lead-in{opacity:1;transform:none}
+.art{position:relative;background:#fff;border-radius:18px;padding:16px 14px 14px;box-shadow:0 14px 28px -20px rgba(60,40,90,.5),inset 0 0 0 1px #efe9f6;display:grid;gap:4px;justify-items:center;cursor:pointer;border:0;font:inherit}
+.art .g{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.art .w{font-family:var(--mono);font-weight:600;font-size:20px;display:flex;gap:8px;align-items:baseline}
+.flip{position:relative;display:inline-block;height:1.3em;min-width:3.1em;perspective:300px;text-align:right}
+.flip span{position:absolute;right:0;top:0;backface-visibility:hidden;transition:transform .6s cubic-bezier(.3,.7,.2,1.2),opacity .3s;white-space:nowrap}
+.flip .o{color:var(--muted)}
+.flip .n{transform:rotateX(-90deg);opacity:0;color:var(--b3)}
+.art.m .flip .n{color:var(--v2)}
+.art .ru{font-size:12px;color:var(--muted)}
+.ex-art[data-step="1"] .art.m .o,.ex-art[data-step="2"] .art .o,.ex-art[data-step="3"] .art .o{transform:rotateX(90deg);opacity:0}
+.ex-art[data-step="1"] .art.m .n,.ex-art[data-step="2"] .art .n,.ex-art[data-step="3"] .art .n{transform:none;opacity:1}
+.ex-art[data-step="1"] .art.m,.ex-art[data-step="3"] .art.m{box-shadow:0 18px 30px -18px rgba(146,66,236,.6),inset 0 0 0 2px #cfa9f7}
+.ex-art[data-step="3"] .art:not(.m){opacity:.55}
+.qty{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:18px}
+.chip{display:inline-flex;align-items:center;gap:8px;background:#fff;border:0;border-radius:999px;padding:9px 14px 9px 16px;font-family:var(--mono);font-weight:600;font-size:13.5px;box-shadow:inset 0 0 0 1.5px #ebe3f5;cursor:pointer;color:var(--ink)}
+.chip small{font-family:var(--f);font-size:11px;color:var(--muted);font-weight:500}
+.chip svg{width:14px;height:14px;color:var(--v2)}
+.chip:hover{box-shadow:inset 0 0 0 1.5px #cfb2f3}
+
+/* trainer */
+.trainer{margin-top:22px;border-radius:22px;background:var(--dark);color:#e7e3ec;padding:22px 18px;display:grid;gap:16px;text-align:center}
+.trainer h4{margin:0;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--b1);font-weight:700}
+.trainer .play{justify-self:center;width:74px;height:74px;border-radius:50%;border:0;background:var(--pill);color:#fff;cursor:pointer;display:grid;place-items:center;box-shadow:0 0 0 10px rgba(155,72,241,.18),0 18px 30px -10px rgba(146,66,236,.9);animation:pulse 2.4s ease-in-out infinite}
+.trainer .play svg{width:26px;height:26px;margin-left:3px}
+@keyframes pulse{50%{box-shadow:0 0 0 18px rgba(155,72,241,.06),0 18px 30px -10px rgba(146,66,236,.9)}}
+.opts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.opts button{border:0;cursor:pointer;border-radius:14px;padding:14px 4px;background:var(--dark2);color:#fff;font-family:var(--mono);font-weight:600;font-size:clamp(16px,4.6vw,20px);box-shadow:inset 0 0 0 1.5px var(--dark3);transition:.2s}
+.opts button:hover{box-shadow:inset 0 0 0 1.5px #7c5ab0}
+.opts button.ok{background:#1f4a37;box-shadow:inset 0 0 0 2px #3fbf85}
+.opts button.no{background:#4a2124;box-shadow:inset 0 0 0 2px #e0605a;animation:shake .4s}
+@keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.tfb{min-height:3.2em;font-size:13.5px;color:#bcb5c7}
+.tfb b{color:#fff}
+.trow{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.linkbtn{border:0;background:none;color:var(--b1);font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;padding:6px}
+.score{font-size:11px;color:#8f879c;letter-spacing:.08em;text-transform:uppercase;font-weight:700}
+
+/* ---------- timeline ---------- */
+.tl{position:relative;display:grid;gap:0;margin-top:30px}
+.tl-item{position:relative;display:grid;grid-template-columns:54px 1fr;gap:12px;padding:0 0 22px}
+.tl-item::before{content:"";position:absolute;left:26px;top:44px;bottom:6px;width:1px;background:linear-gradient(#e2d6f2,transparent)}
+.tl-item:last-child::before{display:none}
+.tl-n{font-size:34px;font-style:italic;font-weight:500;line-height:1;background:linear-gradient(180deg,#b27cf5,#6d33c9);-webkit-background-clip:text;background-clip:text;color:transparent;padding-top:4px}
+.tl-q{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.tl-q .de{font-size:14px;white-space:normal}
+.tl-a{margin-top:6px;font-size:13.5px;color:var(--ink2)}
+.tl-a b{color:var(--ink);font-family:var(--mono);font-weight:600}
+.tl-a em{display:block;font-style:normal;color:var(--muted);font-size:12.5px;margin-top:2px}
+.queen{display:none}
+@media (min-width:900px){
+  .tl{grid-template-columns:1fr 200px 1fr;column-gap:10px}
+  .tl-col{display:grid;align-content:start}
+  .queen{display:block;grid-column:2;grid-row:1;align-self:center;justify-self:center;width:170px;filter:drop-shadow(0 30px 24px rgba(70,50,100,.25));animation:float 6s ease-in-out infinite}
+}
+@keyframes float{50%{transform:translateY(-10px)}}
+
+/* ---------- simulator ---------- */
+.sim-wrap{display:grid;gap:22px;margin-top:28px;align-items:start}
+@media (min-width:900px){.sim-wrap{grid-template-columns:1fr 380px}}
+.sim-side{display:grid;gap:12px;align-content:start}
+.sim-side .txt{font-size:15px}
+.phone{justify-self:center;width:100%;max-width:380px;background:var(--dark);border-radius:34px;padding:12px;box-shadow:0 40px 70px -30px rgba(30,15,60,.7),inset 0 0 0 1px #3b3545}
+.phone-in{background:#16141a;border-radius:24px;padding:16px 14px;min-height:500px;display:flex;flex-direction:column}
+.p-head{display:flex;align-items:center;gap:10px;padding-bottom:12px;border-bottom:1px solid #2c2833}
+.p-av{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#f3d58a,#d9a441);display:grid;place-items:center;color:#4a3410;font-weight:900}
+.p-head b{display:block;color:#fff;font-size:14px}
+.p-head small{display:block;color:#8f879c;font-size:11px}
+.p-head .tgl{margin-left:auto;border:0;background:#26222c;color:#b8b0c4;border-radius:999px;padding:6px 10px;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+.p-head .tgl[aria-pressed="true"]{background:#3a2a55;color:#e2cffd}
+.log{flex:1;display:flex;flex-direction:column;gap:10px;padding:14px 0;overflow-y:auto;max-height:430px}
+.msg{max-width:88%;border-radius:16px;padding:10px 12px;font-size:13.5px;line-height:1.45;animation:fade .35s ease both}
+.msg.k{align-self:flex-start;background:#26222c;color:#fff;border-left:3px solid #e8b84a;border-top-left-radius:6px}
+.msg.k .de2{font-family:var(--mono);font-weight:600;display:block}
+.msg.k small{display:block;color:#8f879c;font-size:11.5px;margin-top:3px}
+.msg.k .row{display:flex;align-items:flex-start;gap:10px;justify-content:space-between}
+.msg.k .say{background:#332e3a;color:#cfc6db;flex:none;width:30px;height:30px;padding:0;border-radius:50%}
+.msg.u{align-self:flex-end;background:var(--pill);color:#fff;font-family:var(--mono);font-weight:600;border-bottom-right-radius:6px}
+.msg.n{align-self:center;max-width:94%;background:transparent;color:#c9a9a6;font-size:12.5px;text-align:center;font-style:italic;padding:2px 6px}
+.msg.n.good{color:#8fd3b1}
+.typing{align-self:flex-start;background:#26222c;border-radius:16px;padding:12px 14px;display:flex;gap:4px}
+.typing i{width:6px;height:6px;border-radius:50%;background:#8f879c;animation:blink 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes blink{50%{opacity:.2}}
+.choices{display:grid;gap:8px;padding-top:10px;border-top:1px solid #2c2833}
+.choices button{border:0;cursor:pointer;text-align:left;border-radius:12px;padding:12px 14px;background:#221f28;color:#eee9f3;font-family:var(--mono);font-weight:600;font-size:13.5px;box-shadow:inset 0 0 0 1px #37313f;display:flex;gap:10px;align-items:center;transition:.2s}
+.choices button::before{content:"";width:7px;height:7px;border-radius:50%;background:#6c6477;flex:none}
+.choices button:hover{box-shadow:inset 0 0 0 1px #8b64c9}
+.choices button:disabled{opacity:.35;cursor:default;text-decoration:line-through}
+.sim-end{text-align:center;color:#e7e3ec;display:grid;gap:10px;justify-items:center;padding-top:6px}
+.sim-end .receipt{animation:printIn 1.2s both;width:230px;font-size:11px}
+
+/* ---------- builder ---------- */
+.builder{margin-top:26px;max-width:720px;margin-inline:auto;background:#fff;border-radius:24px;padding:22px 16px;box-shadow:0 20px 40px -30px rgba(60,40,90,.5),inset 0 0 0 1px #eee9f5;text-align:center}
+@media (min-width:760px){.builder{padding:30px 36px}}
+.b-top{display:flex;justify-content:space-between;align-items:center;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.b-ru{margin:14px 0 16px;font-size:18px;font-weight:700}
+.b-zone{min-height:66px;border-radius:16px;border:2px dashed #ddd3ea;background:#faf8fd;padding:10px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-content:center;transition:.3s}
+.b-zone.ok{border-color:#69c79b;background:var(--okbg)}
+.b-zone.no{border-color:#ec8b86;background:var(--badbg);animation:shake .4s}
+.b-pool{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:16px 0 18px;min-height:46px}
+.w-chip{border:0;cursor:pointer;background:#fff;border-radius:12px;padding:10px 14px;font-family:var(--mono);font-weight:600;font-size:15px;box-shadow:inset 0 0 0 1.5px #e7e0f0,0 4px 10px -8px rgba(60,40,90,.5);transition:transform .15s}
+.w-chip:hover{transform:translateY(-2px)}
+.b-zone .w-chip{background:var(--vbg);color:var(--vt);box-shadow:inset 0 0 0 1.5px #d9c3f7}
+.b-act{display:grid;grid-template-columns:1fr 2fr;gap:10px}
+.b-act button{border:0;cursor:pointer;border-radius:14px;padding:15px;font-weight:700;font-size:13px;letter-spacing:.04em}
+.b-act .reset{background:#f0edf4;color:var(--ink2)}
+.b-act .check{background:var(--pill);color:#fff;box-shadow:0 12px 24px -12px rgba(146,66,236,.8)}
+.b-fb{min-height:2.8em;margin-top:12px;font-size:13.5px;color:var(--ink2)}
+.b-fb.ok{color:var(--ok);font-weight:600}
+.b-fb.no{color:var(--bad)}
+
+/* ---------- cheat sheet ---------- */
+.cards{display:grid;grid-template-columns:1fr;gap:12px;margin-top:28px}
+@media (min-width:560px){.cards{grid-template-columns:1fr 1fr}}
+@media (min-width:980px){.cards{grid-template-columns:repeat(4,1fr)}}
+.card{background:#fff;border-radius:20px;padding:18px;box-shadow:0 16px 30px -24px rgba(60,40,90,.6),inset 0 0 0 1px #efe9f6;display:grid;gap:6px;align-content:start}
+.card .k{font-size:10px;font-weight:700;letter-spacing:.14em;color:var(--v2);text-transform:uppercase}
+.card .d{font-family:var(--mono);font-weight:600;font-size:16px;line-height:1.35}
+.card .r{font-size:12.5px;color:var(--muted);margin-bottom:6px}
+.card .say{width:100%}
+
+/* ---------- two options ---------- */
+.two{display:grid;gap:18px;margin-top:26px;align-items:start}
+@media (min-width:760px){.two{grid-template-columns:1fr 1fr;gap:34px}}
+.opt{border-radius:22px;padding:22px 20px}
+.opt h4{margin:0 0 8px;font-size:22px;font-weight:800;text-transform:uppercase}
+.opt p{margin:0 0 8px;font-size:14px;color:var(--ink2)}
+.opt.o1{background:var(--soft)}
+.opt.o1 h4{background:var(--bgrad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.opt.o2{background:linear-gradient(160deg,#faf5ff,#f1e6fd);box-shadow:inset 0 0 0 1.5px #e2cff9}
+.opt.o2 h4{background:var(--vgrad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.opt .ic2{width:50px;height:50px;margin-bottom:10px}
+
+/* ---------- about ---------- */
+.about{display:grid;gap:22px;align-items:center}
+@media (min-width:900px){.about{grid-template-columns:300px 1fr;gap:44px}}
+.about-vis{position:relative;justify-self:center;width:230px;height:230px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#efe7fa 55%,#e1d2f5);display:grid;place-items:center;box-shadow:inset 0 -20px 40px rgba(140,90,210,.15),0 30px 50px -30px rgba(90,50,150,.5)}
+.about-vis .logo{width:130px;height:130px}
+.about-vis .ring{position:absolute;inset:-12px;border-radius:50%;border:1.5px dashed #dcc8f5;animation:spin 40s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.about h2{margin:0 0 6px;font-size:clamp(28px,8vw,52px);font-weight:900;text-transform:uppercase;background:var(--vgrad);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1}
+.about .brandline{font-weight:800;letter-spacing:.16em;text-transform:uppercase;font-size:12px;color:var(--b2);margin-bottom:12px}
+.about .txt{color:var(--ink2);font-size:15px}
+.task{display:grid;gap:14px;margin-top:20px}
+@media (min-width:760px){.task{grid-template-columns:1fr 1fr;gap:30px}.task>div+div{border-left:1px solid var(--line);padding-left:30px}}
+.task h5{margin:0 0 6px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.task p{margin:0;font-size:14px;color:var(--ink2)}
+
+/* not-for-you */
+.nfy{margin:30px auto 0;max-width:420px;background:var(--dark);border-radius:30px;padding:26px 20px;text-align:center;color:#d7d2df;box-shadow:0 40px 60px -30px rgba(20,10,40,.6)}
+.nfy .warn{width:44px;height:40px;margin:0 auto 8px}
+.nfy h4{margin:0 0 12px;color:#fff;font-size:15px;font-weight:800;text-transform:uppercase;letter-spacing:.04em}
+.nfy h4 span{font-weight:500;display:block;font-size:12px;color:#bdb5c8}
+.nfy ul{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:14px}
+.nfy li{background:var(--dark2);border-radius:16px;padding:16px 14px 14px;font-size:13.5px;display:grid;gap:8px;justify-items:center}
+.nfy li::before{content:"✕";color:#ff4b4b;font-weight:900;font-size:22px;line-height:1}
+.nfy li b{color:#fff}
+@media (min-width:900px){.nfy{max-width:none}.nfy ul{grid-template-columns:repeat(3,1fr)}}
+
+/* pains */
+.pains{display:grid;gap:14px;margin-top:28px}
+@media (min-width:760px){.pains{grid-template-columns:1fr 1fr;gap:18px}}
+.pain{background:var(--soft);border-radius:22px;padding:22px 20px;display:grid;gap:6px;align-content:start}
+.pain .num{font-size:40px;font-weight:500;line-height:1;background:var(--bgrad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.pain h4{margin:4px 0 2px;font-size:16px;font-weight:800}
+.pain p{margin:0;font-size:14px;color:var(--ink2)}
+.pain .fix{margin-top:8px;padding-top:10px;border-top:1px solid #e6e0ee;font-size:13.5px;color:var(--vt);font-weight:600}
+
+/* features */
+.feats{display:grid;grid-template-columns:1fr;gap:12px;margin-top:28px}
+@media (min-width:560px){.feats{grid-template-columns:1fr 1fr}}
+@media (min-width:980px){.feats{grid-template-columns:repeat(3,1fr);gap:16px}}
+.feat{background:var(--soft);border-radius:20px;padding:22px 18px;text-align:center;display:grid;gap:8px;justify-items:center;align-content:start;transition:transform .3s,box-shadow .3s}
+.feat:hover{transform:translateY(-4px);box-shadow:0 20px 34px -24px rgba(90,50,150,.55)}
+.feat svg{width:74px;height:74px}
+.feat p{margin:0;font-size:13.5px;color:var(--ink2)}
+.feat p b{color:var(--ink)}
+
+/* video */
+.laptop{margin:28px auto 0;max-width:900px}
+.screen{background:#16141a;border-radius:18px 18px 0 0;padding:10px 10px 12px;box-shadow:0 0 0 1px #2c2833}
+.screen video,.screen img{display:block;width:100%;border-radius:8px;background:#0f0d12;aspect-ratio:1280/610;object-fit:cover}
+.base{height:16px;margin:0 -5%;background:linear-gradient(180deg,#e8e5ee,#bdb7c8);border-radius:0 0 16px 16px;position:relative}
+.base::before{content:"";position:absolute;left:50%;top:0;width:18%;height:6px;margin-left:-9%;background:#cfc9d8;border-radius:0 0 8px 8px}
+.vcap{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:22px}
+.vcap span{background:var(--soft);border-radius:999px;padding:8px 14px;font-size:12px;font-weight:700;color:var(--ink2)}
+.vcap span b{color:var(--v2);margin-right:4px}
+
+/* shots */
+.shots{display:grid;grid-auto-flow:column;grid-auto-columns:86%;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 2px 18px;margin-top:26px;scrollbar-width:thin}
+@media (min-width:760px){.shots{grid-auto-columns:46%}}
+@media (min-width:1080px){.shots{grid-auto-columns:38%}}
+.shot{scroll-snap-align:start;margin:0;display:grid;gap:10px;align-content:start}
+.shot .frame{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 20px 40px -26px rgba(60,40,90,.55),0 0 0 1px #ece7f3}
+.shot .frame img,.shot .frame video{display:block;width:100%;aspect-ratio:1200/784;object-fit:cover;object-position:top}
+.shot figcaption{font-size:13px;color:var(--ink2)}
+.shot figcaption b{display:block;color:var(--ink);font-size:14px}
+
+/* reviews */
+.quote{position:relative;display:grid;gap:4px;margin-top:6px}
+.quote .qm{width:46px;height:46px;border-radius:50%;box-shadow:inset 0 0 0 1.5px #e6ddf2;display:grid;place-items:center;color:#c9b7e6;font-size:34px;font-weight:900;line-height:1;padding-top:12px}
+.qline{font-weight:800;text-transform:uppercase;font-size:clamp(22px,6.8vw,46px);line-height:1.12;display:flex;align-items:center;gap:14px}
+.qline::before{content:"";width:44px;height:1.5px;background:#d9d1e4;flex:none}
+.qline.v span{background:var(--vgrad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.qline.b span{background:var(--bgrad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.qline.i2{padding-left:0}
+@media (min-width:760px){.qline.i1{padding-left:60px}.qline.i2{padding-left:0}}
+.qsrc{font-size:12px;color:var(--muted);margin-top:8px}
+.revs{columns:1;column-gap:14px;margin-top:26px}
+@media (min-width:760px){.revs{columns:2}}
+.revs img{display:block;width:100%;border-radius:18px;margin:0 0 14px;break-inside:avoid;box-shadow:0 16px 30px -22px rgba(20,10,40,.6)}
+
+/* pricing */
+.tariffs{display:grid;gap:34px;margin-top:62px}
+@media (min-width:900px){.tariffs{grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}}
+.tar{position:relative;background:#fff;border-radius:22px;padding:58px 20px 22px;box-shadow:0 24px 44px -30px rgba(60,40,90,.55),inset 0 0 0 1px #eee8f5;display:flex;flex-direction:column;text-align:center}
+.tar::before{content:"";position:absolute;left:18%;right:18%;top:0;height:5px;border-radius:0 0 6px 6px;background:var(--pill)}
+.tar .ico{position:absolute;left:50%;top:-44px;width:92px;height:92px;margin-left:-46px;filter:drop-shadow(0 14px 14px rgba(120,80,60,.35))}
+.tar h4{margin:0;font-size:20px;font-weight:800;text-transform:uppercase;letter-spacing:.04em}
+.tar .for{font-size:12px;color:var(--muted);margin:4px 0 14px}
+.tar ul{list-style:none;margin:0 0 18px;padding:0;display:grid;gap:9px;text-align:left;font-size:13px;font-weight:600}
+.tar li{display:flex;gap:8px}
+.tar li::before{content:"✓";color:var(--v2);font-weight:800;flex:none}
+.tar li.off{color:#cbc5d4;font-weight:500}
+.tar li.off::before{color:#ddd7e4}
+.tar li.gift::before{content:"★";color:var(--b2)}
+.tar .price{margin-top:auto;display:grid;gap:2px}
+.tar .price s{color:var(--muted);font-weight:600;font-size:15px}
+.tar .price b{font-size:44px;font-weight:600;line-height:1.05;background:var(--bgrad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.tar .price small{font-size:11px;color:var(--muted);font-weight:600;margin-bottom:14px}
+.tar .btn{width:100%}
+.tar.best{box-shadow:0 30px 60px -30px rgba(146,66,236,.6),inset 0 0 0 2px #d6b6fb}
+.tar .flag{position:absolute;top:14px;right:14px;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:linear-gradient(135deg,#ecd3c1,#c49a7e);padding:5px 10px;border-radius:999px}
+.guar{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:26px}
+.guar span{display:inline-flex;align-items:center;gap:8px;background:var(--soft);border-radius:999px;padding:9px 14px;font-size:12.5px;font-weight:600;color:var(--ink2)}
+.guar svg{width:16px;height:16px;color:var(--v2)}
+
+/* final */
+.final{position:relative;border-radius:28px;padding:44px 20px;text-align:center;color:#fff;overflow:hidden;background:linear-gradient(150deg,#b26af3 0%,#8a44e4 45%,#5c28ad 100%)}
+.final::before{content:"";position:absolute;inset:0;background:radial-gradient(50% 60% at 15% 0%,rgba(255,255,255,.4),transparent 60%),radial-gradient(40% 50% at 100% 100%,rgba(234,208,189,.45),transparent 70%)}
+.final>*{position:relative}
+.final h2{margin:0;font-size:clamp(24px,7vw,46px);font-weight:900;text-transform:uppercase;line-height:1.08;text-wrap:balance}
+.final .kasse{display:inline-grid;gap:6px;margin:24px auto 0;background:rgba(20,10,40,.28);border-radius:18px;padding:16px 20px;text-align:left;font-size:14px;backdrop-filter:blur(6px)}
+.final .kasse .de{background:rgba(255,255,255,.14);color:#fff}
+.final p{max-width:32em;margin:18px auto 0;color:#efe6fb}
+.final .btn{margin-top:24px;background:#fff;color:var(--vt);box-shadow:0 18px 34px -12px rgba(20,10,40,.6)}
+.final .tg{margin-top:16px;font-size:13px;color:#e4d6f7}
+.final .tg b{color:#fff;user-select:all}
+
+footer{padding:28px 0 10px;text-align:center;font-size:12px;color:var(--muted)}
+
+/* sticky */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:40;padding:0 12px calc(12px + env(safe-area-inset-bottom,0px));transform:translateY(130%);transition:transform .45s cubic-bezier(.2,.8,.2,1);pointer-events:none}
+.sticky.show{transform:none}
+.sticky a{pointer-events:auto;max-width:520px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;background:rgba(29,26,34,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:#fff;text-decoration:none;border-radius:20px;padding:10px 10px 10px 18px;box-shadow:0 20px 40px -16px rgba(20,10,40,.7)}
+.sticky small{display:block;font-size:10.5px;color:#aaa2b6;letter-spacing:.04em}
+.sticky b{display:block;font-size:13.5px}
+.sticky .btn{padding:12px 16px;font-size:11px;box-shadow:none}
+
+/* reveal */
+.rv.pre{opacity:0;transform:translateY(28px)}
+.rv.pre.in{opacity:1;transform:none;transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<!-- shared gradients & symbols -->
+<svg class="defs" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="gMarble" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#ffffff"/><stop offset=".55" stop-color="#f2f0f6"/><stop offset="1" stop-color="#c9c3d6"/></linearGradient>
+    <linearGradient id="gMarbleV" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#d9d4e2"/></linearGradient>
+    <radialGradient id="gQueen" cx=".35" cy=".3" r=".9"><stop offset="0" stop-color="#ffffff"/><stop offset=".6" stop-color="#eeebf3"/><stop offset="1" stop-color="#bdb6cb"/></radialGradient>
+    <linearGradient id="gBronze" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#f6e2d3"/><stop offset=".45" stop-color="#c99b7e"/><stop offset="1" stop-color="#855843"/></linearGradient>
+    <linearGradient id="gBronzeD" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#b98a6e"/><stop offset="1" stop-color="#6f4735"/></linearGradient>
+    <linearGradient id="gViolet" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#d59cff"/><stop offset=".5" stop-color="#9c4ef0"/><stop offset="1" stop-color="#5e2ba3"/></linearGradient>
+    <linearGradient id="gBun" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#f0cfa4"/><stop offset=".55" stop-color="#cf9660"/><stop offset="1" stop-color="#9d6436"/></linearGradient>
+    <pattern id="pFlute" width="12" height="10" patternUnits="userSpaceOnUse"><rect width="12" height="10" fill="#f6f4f9"/><rect x="0" width="3" height="10" fill="#dcd7e5"/><rect x="3" width="2" height="10" fill="#ffffff"/></pattern>
+    <symbol id="column" viewBox="0 0 120 520">
+      <rect x="4" y="0" width="112" height="12" rx="2" fill="url(#gMarbleV)"/>
+      <rect x="12" y="12" width="96" height="24" rx="3" fill="url(#gMarble)"/>
+      <circle cx="16" cy="30" r="16" fill="url(#gMarble)"/><circle cx="16" cy="30" r="9" fill="none" stroke="#d3cddd" stroke-width="2"/><circle cx="16" cy="30" r="3.5" fill="#d3cddd"/>
+      <circle cx="104" cy="30" r="16" fill="url(#gMarble)"/><circle cx="104" cy="30" r="9" fill="none" stroke="#c6bfd2" stroke-width="2"/><circle cx="104" cy="30" r="3.5" fill="#c6bfd2"/>
+      <rect x="24" y="40" width="72" height="10" rx="2" fill="#e8e5ee"/>
+      <rect x="26" y="50" width="68" height="420" fill="url(#pFlute)"/>
+      <rect x="26" y="50" width="68" height="420" fill="url(#gMarble)" opacity=".55"/>
+      <rect x="20" y="470" width="80" height="12" rx="3" fill="url(#gMarble)"/>
+      <rect x="12" y="482" width="96" height="14" rx="4" fill="url(#gMarble)"/>
+      <rect x="4" y="496" width="112" height="24" rx="3" fill="url(#gMarbleV)"/>
+    </symbol>
+    <symbol id="bun" viewBox="0 0 70 56">
+      <ellipse cx="35" cy="50" rx="30" ry="4" fill="#000" opacity=".08"/>
+      <path d="M6 40c0-18 13-32 29-32s29 14 29 32c0 5-6 8-29 8S6 45 6 40z" fill="url(#gBun)"/>
+      <path d="M35 10c-3 10-3 22 0 36" stroke="#8a5530" stroke-width="2.4" fill="none" stroke-linecap="round" opacity=".55"/>
+      <path d="M18 20c5 3 9 3 12 1M40 21c3 2 7 2 12-1" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" opacity=".35"/>
+    </symbol>
+    <symbol id="speaker" viewBox="0 0 24 24"><path d="M4 9h3l5-4v14l-5-4H4z" fill="currentColor"/><path class="w" d="M15.5 8.5a5 5 0 010 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/><path class="w" d="M18 6a8.5 8.5 0 010 12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></symbol>
+    <symbol id="arrowUR" viewBox="0 0 16 16"><path d="M4 12L12 4M5.5 4H12v6.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="arrowR" viewBox="0 0 20 20"><path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="arrowL" viewBox="0 0 20 20"><path d="M16 10H4M9 5l-5 5 5 5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  </defs>
+</svg>
+
+<div class="wrap">
+  <header class="nav">
+    <div class="nav-in">
+      <a class="brand" href="#top" aria-label="Stellas">
+        <span class="logo" aria-hidden="true"></span>
+        <span><b>STELLAS</b><small>немецкий для жизни</small></span>
+      </a>
+      <a class="btn btn-sm" href="https://app.lava.top/801303618?tabId=products&amp;sort=published" target="_blank" rel="noopener">Платформа <svg><use href="#arrowUR"/></svg></a>
+    </div>
+  </header>
+
+  <main class="stack" id="top">
+
+    <!-- HERO -->
+    <section class="sheet hero" id="hero">
+      <div class="badge" aria-hidden="true"><b>A1</b><small>уровень</small></div>
+      <div class="meta">
+        <div><small>Уровень</small><b>A1</b></div>
+        <div><small>Время</small><b>12 минут</b></div>
+        <div><small>Тема</small><b>Einkaufen</b></div>
+      </div>
+      <h1 class="h1"><span>Спроси.</span> <span>Заплати.</span> <span>Забери!</span></h1>
+      <p class="sub">Как спросить цену, понять ответ и выйти из магазина с тем, за чем заходил. Восемь фраз. Одна касса. Без зубрёжки.</p>
+      <span class="pill-v">Урок немецкого · покупки</span>
+
+      <div class="scene" aria-hidden="true">
+        <svg class="col l" viewBox="0 0 120 520"><use href="#column"/></svg>
+        <svg class="col r" viewBox="0 0 120 520"><use href="#column"/></svg>
+        <div class="floor"></div>
+        <div class="receipt">
+          <div class="c hd">BÄCKEREI SONNENKORN</div>
+          <div class="c muted">Hauptstraße 12 · Berlin</div>
+          <hr>
+          <div class="ln"><span>2 x Brötchen</span><span>1,90</span></div>
+          <div class="ln"><span>1 x Brezel</span><span>0,85</span></div>
+          <div class="ln"><span>1 x Kaffee</span><span>2,40</span></div>
+          <hr>
+          <div class="ln sum"><span>SUMME EUR</span><span>5,15</span></div>
+          <div class="ln"><span>Bar</span><span>6,00</span></div>
+          <div class="ln"><span>Rückgeld</span><span>0,85</span></div>
+          <hr>
+          <div class="c">Vielen Dank!</div>
+          <div class="c muted">Schönen Tag noch!</div>
+        </div>
+        <div class="bub b1"><span class="ic" style="background:var(--pill)">Я</span><span>Was kostet das?<small>Сколько это стоит?</small></span></div>
+        <div class="bub b2"><span class="ic" style="background:linear-gradient(135deg,#f3d58a,#d9a441);color:#4a3410">€</span><span>Mit Karte oder bar?<small>Картой или наличными?</small></span></div>
+        <div class="bub b3"><span class="ic" style="background:var(--pill)">Я</span><span>Mit Karte, bitte.<small>Картой, пожалуйста.</small></span></div>
+      </div>
+
+      <div class="hero-cta">
+        <a class="btn" href="#story">Начать урок <svg><use href="#arrowR"/></svg></a>
+        <a class="btn btn-ghost" href="#kasse">Сразу к кассе</a>
+      </div>
+    </section>
+
+    <!-- STORY -->
+    <section class="sheet rv" id="story">
+      <p class="eyebrow">История</p>
+      <h2 class="h2"><span class="l">Как я покупал</span> <span class="b">две булочки</span></h2>
+      <div class="story-track" id="storyTrack" tabindex="0" aria-label="История, листайте">
+        <article class="slide">
+          <span class="num">01</span>
+          <p>Первая неделя в Германии. Захожу в пекарню. Хочу две булочки. Всё. Больше ничего не хочу.</p>
+          <p>Дома фразу отрепетировал. <span class="de">Ich möchte zwei Brötchen.</span> Звучит уверенно. Почти как местный.</p>
+        </article>
+        <article class="slide">
+          <span class="num">02</span>
+          <p>Подхожу. Говорю, <span class="de">ich möchte zwei Brötchen</span>. Продавщица говорит, <span class="de">welche?</span> И показывает на витрину.</p>
+          <p>А там двадцать видов булочек. Говорю, <span class="de">diese</span>. Она берёт не ту. Говорю, <span class="de">nein, diese</span>. Опять не та.</p>
+        </article>
+        <article class="slide">
+          <span class="num">03</span>
+          <p>С третьей попытки угадали. Она говорит, <span class="de">sonst noch etwas?</span></p>
+          <p>Я не знаю, что это. Говорю, <span class="de">ja</span>. На всякий случай. Она ждёт. Я тоже жду. Очередь сзади тоже ждёт.</p>
+        </article>
+        <article class="slide">
+          <span class="num">04</span>
+          <p>Говорю, <span class="de">nein, danke</span>. Она говорит, <span class="de">eins neunzig</span>. Я слышу «айнс» и даю один евро.</p>
+          <p>Она смотрит на евро. Потом на меня. Говорит, <span class="de">noch neunzig Cent</span>. Даю второй евро. Молча. Как будто так и задумывал.</p>
+        </article>
+        <article class="slide">
+          <span class="num">05</span>
+          <p>Потом спрашивает, <span class="de">brauchen Sie eine Tüte?</span> Говорю, <span class="de">ja</span>. Я уже на всё говорю <span class="de">ja</span>. Пакет, кстати, платный.</p>
+          <p>Вышел. Съел булочку. Вкусная.</p>
+          <p class="punch">Не та, которую я хотел.</p>
+        </article>
+      </div>
+      <div class="pager">
+        <button type="button" id="storyPrev" aria-label="Назад"><svg><use href="#arrowL"/></svg></button>
+        <div class="count" aria-live="polite"><span id="storyNow">01</span><small>/05</small></div>
+        <button type="button" class="fill" id="storyNext" aria-label="Дальше"><svg><use href="#arrowR"/></svg></button>
+      </div>
+      <p class="lead">Ниже всё, чего мне тогда не хватило. По порядку. Как на кассе.</p>
+    </section>
+
+    <!-- STATS -->
+    <section class="rv">
+      <div class="stats">
+        <h3><span>12 минут погружения</span>в немецкий магазин</h3>
+        <div class="sgrid">
+          <div><b data-count="8">8</b><small>фраз хватает<br>на любую кассу</small></div>
+          <div><b data-count="6">6</b><small>вопросов задаст кассир.<br>Всегда одни и те же</small></div>
+          <div><b data-count="49">49</b><small>число, которое немцы<br>читают задом наперёд</small></div>
+          <div><b data-count="1">1</b><small>правило про der → einen.<br>Больше не нужно</small></div>
+        </div>
+      </div>
+      <div class="panel">
+        <h3><i>“</i>Спроси. Заплати. Забери — это</h3>
+        <div class="cols">
+          <p style="margin:0">Не список слов из учебника. <b>Только то, что реально говорят</b> в Rewe, Lidl, пекарне и на рынке.</p>
+          <p style="margin:0">Каждую фразу можно послушать. <b>Каждое правило разобрано по шагам.</b> В конце касса, которую надо пройти самому.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 1 -->
+    <section class="sheet rv" id="step1">
+      <p class="eyebrow">Шаг 1 из 4</p>
+      <h2 class="h2"><span class="l">Как спросить</span> <span class="b">цену</span></h2>
+      <p class="lead">Ценника нет. Или он есть, но висит над другим товаром. Бывает. Значит, спрашиваешь.</p>
+
+      <div class="ex ex-cost" id="exCost" data-step="0">
+        <div class="ex-stage">
+          <div class="buns" id="buns">
+            <svg viewBox="0 0 70 56"><use href="#bun"/></svg>
+            <svg viewBox="0 0 70 56" class="off"><use href="#bun"/></svg>
+            <svg viewBox="0 0 70 56" class="off"><use href="#bun"/></svg>
+          </div>
+          <div class="tagline" id="costTag">1 штука · показываешь пальцем</div>
+          <div class="phrase" id="costPhrase" aria-live="polite">Was kostet <b class="chg">das</b>?</div>
+          <button class="say" type="button" id="costSay" data-say="Was kostet das?"><svg><use href="#speaker"/></svg>Hören</button>
+        </div>
+        <div class="cap" id="costCap"></div>
+        <div class="ex-bar">
+          <div class="dots"></div>
+          <div class="ex-btns"><button type="button" class="prev" aria-label="Назад"><svg><use href="#arrowL"/></svg></button><button type="button" class="next">Дальше <svg><use href="#arrowR"/></svg></button></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 2 -->
+    <section class="sheet rv" id="step2">
+      <p class="eyebrow">Шаг 2 из 4</p>
+      <h2 class="h2"><span class="l">Как понять</span> <span class="b">ответ</span></h2>
+      <p class="lead">Спросить — полдела. Тебе ответят. Быстро. Числом. Вот тут обычно и начинается «айнс».</p>
+
+      <div class="ex ex-price" id="exPrice" data-step="0">
+        <div class="ex-stage">
+          <div class="ptag" aria-label="2,49 евро">
+            <span class="p-e">2</span><span>,</span><span class="p-t">4<i class="ord">2</i></span><span class="p-u">9<i class="ord">1</i></span><span class="k">€</span>
+          </div>
+          <div class="words" aria-live="polite">
+            <span class="w-e">zwei</span><span class="w-euro">Euro</span>
+            <span class="grp"><span class="w-u">neun</span><span class="w-und">und</span><span class="w-t">vierzig</span></span>
+          </div>
+          <div class="hint3">Касса скажет просто: zwei neunundvierzig</div>
+          <button class="say" type="button" id="priceSay" data-say="zwei Euro neunundvierzig"><svg><use href="#speaker"/></svg>Hören</button>
+        </div>
+        <div class="cap" id="priceCap"></div>
+        <div class="ex-bar">
+          <div class="dots"></div>
+          <div class="ex-btns"><button type="button" class="prev" aria-label="Назад"><svg><use href="#arrowL"/></svg></button><button type="button" class="next">Дальше <svg><use href="#arrowR"/></svg></button></div>
+        </div>
+      </div>
+
+      <div class="trainer" id="trainer">
+        <h4>Тренажёр · услышь цену</h4>
+        <button class="play" type="button" id="tPlay" aria-label="Послушать цену"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l12-7.5z" fill="currentColor"/></svg></button>
+        <div class="opts" id="tOpts"></div>
+        <div class="tfb" id="tFb" aria-live="polite">Жми на кнопку. Кассир назовёт цену. Выбери, что услышал.</div>
+        <div class="trow">
+          <button class="linkbtn" type="button" id="tShow">Показать словами</button>
+          <button class="linkbtn" type="button" id="tNext">Следующая цена →</button>
+        </div>
+        <div class="score" id="tScore">0 из 0</div>
+      </div>
+    </section>
+
+    <!-- STEP 3 -->
+    <section class="sheet rv" id="step3">
+      <p class="eyebrow">Шаг 3 из 4</p>
+      <h2 class="h2"><span class="l">Как</span> <span class="b">заказать</span></h2>
+      <p class="lead">В пекарне и на рынке товар дают в руки. Значит, надо сказать, что хочешь. Две фразы. <span class="de">Ich hätte gern…</span> — вежливо. <span class="de">Ich nehme…</span> — по-простому.</p>
+
+      <div class="ex ex-art" id="exArt" data-step="0">
+        <div class="ex-stage">
+          <div class="lead-in">Ich hätte gern …</div>
+          <div class="arts">
+            <button type="button" class="art m" data-say="Ich hätte gern einen Apfel."><span class="g">мужской</span><span class="w"><span class="flip"><span class="o">der</span><span class="n">einen</span></span><span>Apfel</span></span><span class="ru">яблоко</span></button>
+            <button type="button" class="art" data-say="Ich hätte gern eine Brezel."><span class="g">женский</span><span class="w"><span class="flip"><span class="o">die</span><span class="n">eine</span></span><span>Brezel</span></span><span class="ru">крендель</span></button>
+            <button type="button" class="art" data-say="Ich hätte gern ein Brötchen."><span class="g">средний</span><span class="w"><span class="flip"><span class="o">das</span><span class="n">ein</span></span><span>Brötchen</span></span><span class="ru">булочка</span></button>
+          </div>
+        </div>
+        <div class="cap" id="artCap"></div>
+        <div class="ex-bar">
+          <div class="dots"></div>
+          <div class="ex-btns"><button type="button" class="prev" aria-label="Назад"><svg><use href="#arrowL"/></svg></button><button type="button" class="next">Дальше <svg><use href="#arrowR"/></svg></button></div>
+        </div>
+      </div>
+
+      <p class="lead" style="margin-top:26px">Количество говоришь без всяких «von». Просто <b>ein Kilo Tomaten</b>. Как «кило помидоров», только без падежей. Нажми, чтобы послушать.</p>
+      <div class="qty">
+        <button class="chip" type="button" data-say="Ein Kilo Tomaten, bitte."><svg><use href="#speaker"/></svg>ein Kilo Tomaten <small>кило помидоров</small></button>
+        <button class="chip" type="button" data-say="Zweihundert Gramm Käse, bitte."><svg><use href="#speaker"/></svg>200 Gramm Käse <small>200 г сыра</small></button>
+        <button class="chip" type="button" data-say="Ein Stück Kuchen, bitte."><svg><use href="#speaker"/></svg>ein Stück Kuchen <small>кусок торта</small></button>
+        <button class="chip" type="button" data-say="Eine Packung Butter, bitte."><svg><use href="#speaker"/></svg>eine Packung Butter <small>пачка масла</small></button>
+        <button class="chip" type="button" data-say="Haben Sie Hafermilch?"><svg><use href="#speaker"/></svg>Haben Sie Hafermilch? <small>есть овсяное молоко?</small></button>
+        <button class="chip" type="button" data-say="Wo finde ich die Eier?"><svg><use href="#speaker"/></svg>Wo finde ich die Eier? <small>где яйца?</small></button>
+      </div>
+    </section>
+
+    <!-- STEP 4 TIMELINE -->
+    <section class="sheet rv" id="kasse">
+      <p class="eyebrow">Шаг 4 из 4</p>
+      <h2 class="h2"><span class="l">Как пройдёт</span> <span class="b">твоя касса</span></h2>
+      <p class="lead">Кассир говорит быстро. Зато всегда одно и то же. Восемь реплик, по порядку.</p>
+      <div class="tl" id="tl"></div>
+    </section>
+
+    <!-- SIMULATOR -->
+    <section class="sheet rv" id="sim">
+      <p class="eyebrow">Практика</p>
+      <h2 class="h2"><span class="l">Пройди кассу</span> <span class="b">сам</span></h2>
+      <div class="sim-wrap">
+        <div class="sim-side">
+          <div class="txt">
+            <p>Суббота. Rewe. Перед тобой никого. Сзади человек шесть.</p>
+            <p>Кассирша говорит. Ты отвечаешь. Кнопкой. Ошибаться можно, очередь ненастоящая.</p>
+            <p>Реплики кассира озвучиваются. Если звук мешает — выключи в углу.</p>
+          </div>
+          <div class="guar" style="justify-content:flex-start;margin-top:4px">
+            <span><svg viewBox="0 0 24 24"><use href="#speaker"/></svg>немецкая озвучка</span>
+            <span>5 реплик</span>
+          </div>
+        </div>
+        <div class="phone">
+          <div class="phone-in">
+            <div class="p-head">
+              <div class="p-av">€</div>
+              <div><b>Кассирша</b><small>Rewe · Kasse 3</small></div>
+              <button type="button" class="tgl" id="simSound" aria-pressed="true">Звук вкл</button>
+            </div>
+            <div class="log" id="simLog" aria-live="polite"></div>
+            <div class="choices" id="simChoices"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BUILDER -->
+    <section class="sheet rv" id="test">
+      <p class="eyebrow">Проверка</p>
+      <h2 class="h2"><span class="l">Собери</span> <span class="b">фразу</span></h2>
+      <p class="lead">Нажимай на слова по порядку. Одно слово в каждом задании лишнее. Как лишний пакет на кассе.</p>
+      <div class="builder" id="builder">
+        <div class="b-top"><span id="bStep">Задание 1 из 4</span><span id="bScore">✓ 0</span></div>
+        <div class="b-ru" id="bRu"></div>
+        <div class="b-zone" id="bZone" aria-label="Ваш ответ"></div>
+        <div class="b-pool" id="bPool"></div>
+        <div class="b-act"><button type="button" class="reset" id="bReset">Сброс</button><button type="button" class="check" id="bCheck">Проверить</button></div>
+        <div class="b-fb" id="bFb" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- CHEAT SHEET -->
+    <section class="sheet rv" id="cheat">
+      <p class="eyebrow">Шпаргалка</p>
+      <h2 class="h2"><span class="l">Восемь фраз</span> <span class="b">на всю жизнь</span></h2>
+      <p class="lead">Сделай скриншот. Серьёзно. Этого хватит на любой магазин в Германии.</p>
+      <div class="cards" id="cards"></div>
+    </section>
+
+    <!-- TWO OPTIONS -->
+    <section class="sheet rv">
+      <h2 class="h2"><span class="l">Закрыть вкладку или</span> <span class="b">дойти до конца темы?</span></h2>
+      <p class="lead">Это последний экран урока. Дальше два варианта.</p>
+      <div class="two">
+        <div class="opt o1">
+          <svg class="ic2" viewBox="0 0 50 50"><circle cx="25" cy="25" r="23" fill="url(#gBronze)"/><path d="M17 17l16 16M33 17L17 33" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/></svg>
+          <h4>1 вариант</h4>
+          <p>Закрыть страницу. Через неделю из восьми фраз помнить две.</p>
+          <p>В пятницу услышать <span class="de">Sonst noch etwas?</span> и вспоминать, что-то там было про «сон».</p>
+        </div>
+        <div class="opt o2">
+          <svg class="ic2" viewBox="0 0 50 50"><circle cx="25" cy="25" r="23" fill="url(#gViolet)"/><path d="M15 26l7 7 14-15" stroke="#fff" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h4>2 вариант</h4>
+          <p>Взять всю тему «Покупки и сервис»: магазин, касса, возврат товара, вопросы по продуктам.</p>
+          <p>И ещё 340+ гайдов рядом. От врача до договора аренды.</p>
+        </div>
+      </div>
+      <p class="lead"><b>Какой вариант выберешь ты?</b></p>
+    </section>
+
+    <!-- ===== AD ===== -->
+    <section class="sheet rv" id="about">
+      <div class="about">
+        <div class="about-vis"><span class="ring"></span><span class="logo" aria-hidden="true"></span></div>
+        <div>
+          <div class="brandline">Stellas · A0 — C1</div>
+          <h2>О платформе</h2>
+          <div class="txt">
+            <p>Этот урок — кусок одной темы с платформы Stellas. Тема называется «Покупки и сервис». Рядом лежат «У кассы», «Возврат товара», «В супермаркете».</p>
+            <p>А рядом с ними ещё <b>340+ гайдов</b>. От алфавита до C1.</p>
+          </div>
+          <div class="task">
+            <div><h5>Откуда взялась</h5><p>У нас были разговорные клубы для тех, кто живёт в Германии. Больше ста учеников. Мы готовили им фразы под реальные ситуации. Из этого выросла платформа.</p></div>
+            <div><h5>Как устроена</h5><p>Каждый гайд — объяснение, видео, упражнение и разбор ответов. Не просто «правильно», а почему. Всё в Notion, работает офлайн.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="nfy">
+        <svg class="warn" viewBox="0 0 44 40"><path d="M22 2L42 38H2z" fill="#f5c542" stroke="#1d1a22" stroke-width="2" stroke-linejoin="round"/><path d="M22 14v11" stroke="#1d1a22" stroke-width="3.5" stroke-linecap="round"/><circle cx="22" cy="31" r="2.2" fill="#1d1a22"/></svg>
+        <h4><span>Сразу честно</span>Платформа не для тебя, если:</h4>
+        <span class="pill-v">Проверь себя</span>
+        <ul>
+          <li><span>Ты <b>уже спокойно говоришь</b> с кассиром, врачом и арендодателем.</span></li>
+          <li><span>Тебе нравится <b>собирать немецкий по кусочкам</b> из пяти приложений.</span></li>
+          <li><span>У тебя есть <b>три свободных вечера</b> в неделю на курсы.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="sheet rv">
+      <p class="eyebrow">Знакомо?</p>
+      <h2 class="h2"><span class="l">Почему немецкий</span> <span class="b">не взлетает</span></h2>
+      <div class="pains">
+        <div class="pain"><span class="num">01</span><h4>Правило знаешь. Сказать не можешь.</h4><p>Про аккузатив ты помнишь. А потом продавец спрашивает быстрее, чем ты вспоминаешь, какой род у яблока. Правило есть. Фразы нет.</p><div class="fix">→ Готовые фразы под ситуации, диалоги с озвучкой, симулятор, как в этом уроке.</div></div>
+        <div class="pain"><span class="num">02</span><h4>Пять приложений. Ноль системы.</h4><p>Серия в Duolingo — двести дней. Три ютуб-канала. Учебник с первой недели, открыт дважды. Всё про разное. Ничего по порядку.</p><div class="fix">→ Одна платформа, от A0 до C1, по уровням. Открыл и идёшь дальше.</div></div>
+        <div class="pain"><span class="num">03</span><h4>Нет трёх вечеров в неделю.</h4><p>Курсы — по вечерам. Работа — днём. Жизнь — где-то между. Учить получается только в U-Bahn. Пять минут. Без интернета.</p><div class="fix">→ Notion на телефоне, работает офлайн. Пять минут — один гайд.</div></div>
+        <div class="pain"><span class="num">04</span><h4>Выучил в воскресенье. В среду забыл.</h4><p>Тридцать слов за выходные. В среду помнишь четыре. Одно из них — <span class="de">Tschüss</span>.</p><div class="fix">→ 7500+ слов с озвучкой, флеш-карты и трекер, который напоминает вернуться.</div></div>
+      </div>
+    </section>
+
+    <section class="sheet rv">
+      <h2 class="h2"><span class="l">Что внутри</span> <span class="b">платформы</span></h2>
+      <div class="feats">
+        <div class="feat">
+          <svg viewBox="0 0 74 74"><rect x="14" y="16" width="40" height="48" rx="6" fill="url(#gBronze)" transform="rotate(-8 34 40)"/><rect x="20" y="12" width="40" height="48" rx="6" fill="url(#gViolet)"/><path d="M29 26h22M29 34h22M29 42h14" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".9"/></svg>
+          <p><b>340+ гайдов от A0 до C1.</b> Объяснение, видео, упражнение и разбор ответов.</p>
+        </div>
+        <div class="feat">
+          <svg viewBox="0 0 74 74"><path d="M37 8c2 16 13 27 29 29-16 2-27 13-29 29-2-16-13-27-29-29 16-2 27-13 29-29z" fill="url(#gViolet)"/><path d="M58 10c.6 4.6 3.4 7.4 8 8-4.6.6-7.4 3.4-8 8-.6-4.6-3.4-7.4-8-8 4.6-.6 7.4-3.4 8-8z" fill="url(#gBronze)"/></svg>
+          <p><b>Интерактивные гайды в Gemini.</b> Как этот урок, только глубже: озвучка, история, диалоги, тест, симулятор, чат с ИИ.</p>
+        </div>
+        <div class="feat">
+          <svg viewBox="0 0 74 74"><rect x="8" y="24" width="14" height="26" rx="4" fill="url(#gBronze)"/><path d="M22 24l18-12v50L22 50z" fill="url(#gViolet)"/><path d="M48 28a12 12 0 010 18M55 21a22 22 0 010 32" stroke="#9c4ef0" stroke-width="4" fill="none" stroke-linecap="round"/></svg>
+          <p><b>7500+ слов с озвучкой</b> и транскрипцией. Не список, а на слух.</p>
+        </div>
+        <div class="feat">
+          <svg viewBox="0 0 74 74"><rect x="10" y="12" width="46" height="36" rx="5" fill="url(#gViolet)"/><path d="M19 23h28M19 31h18" stroke="#fff" stroke-width="3" stroke-linecap="round"/><circle cx="52" cy="46" r="12" fill="url(#gBronze)"/><path d="M46 56l-3 12 9-5 9 5-3-12" fill="url(#gBronzeD)"/></svg>
+          <p><b>Экзамены в одном месте.</b> Goethe, telc, DTZ, ÖSD, TestDaF.</p>
+        </div>
+        <div class="feat">
+          <svg viewBox="0 0 74 74"><rect x="8" y="14" width="44" height="34" rx="6" fill="url(#gViolet)"/><path d="M25 23v16l13-8z" fill="#fff"/><rect x="34" y="36" width="32" height="26" rx="4" fill="url(#gBronze)"/><path d="M50 38v22" stroke="#fff" stroke-width="2" opacity=".7"/></svg>
+          <p><b>Фильмы, книги, подкасты.</b> Уже отсортированы по уровню.</p>
+        </div>
+        <div class="feat">
+          <svg viewBox="0 0 74 74"><rect x="20" y="6" width="34" height="62" rx="8" fill="url(#gViolet)"/><rect x="24" y="14" width="26" height="44" rx="3" fill="#fff" opacity=".92"/><path d="M29 36l6 6 11-12" stroke="#9c4ef0" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="56" cy="16" r="10" fill="url(#gBronze)"/><path d="M52 16h8M56 12v8" stroke="#fff" stroke-width="2.4" stroke-linecap="round" transform="rotate(45 56 16)"/></svg>
+          <p><b>Notion офлайн + трекер.</b> Телефон и ноутбук, без интернета. Цели, привычки, серии.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sheet rv">
+      <p class="eyebrow">Живая запись экрана</p>
+      <h2 class="h2"><span class="l">Так выглядит</span> <span class="b">гайд «Супермаркет»</span></h2>
+      <p class="lead">Та же тема, что в этом уроке. Только на платформе у неё ещё словарь, история, диалоги, тест и симулятор кассы.</p>
+      <div class="laptop">
+        <div class="screen"><video src="media/supermarket.mp4" poster="media/supermarket.jpg" muted autoplay loop playsinline preload="metadata" aria-label="Запись экрана: гайд Супермаркет в Gemini"></video></div>
+        <div class="base"></div>
+      </div>
+      <div class="vcap"><span><b>01</b>Словарь с озвучкой</span><span><b>02</b>История</span><span><b>03</b>Диалоги</span><span><b>04</b>Тест</span><span><b>05</b>Симулятор кассы</span></div>
+    </section>
+
+    <section class="sheet rv">
+      <h2 class="h2"><span class="l">А это</span> <span class="b">платформа в Notion</span></h2>
+      <p class="lead">Листай вбок.</p>
+      <div class="shots">
+        <figure class="shot"><div class="frame"><video src="media/lexicon.mp4" poster="media/lexicon.jpg" muted autoplay loop playsinline preload="metadata" aria-label="Запись экрана: лексика по темам"></video></div><figcaption><b>Лексика по ситуациям</b>Кафе, пекарня, банк, аренда, почта.</figcaption></figure>
+        <figure class="shot"><div class="frame"><img src="media/p8-situations.jpg" alt="Раздел лексики: больница, покупки и сервис" loading="lazy"></div><figcaption><b>«Покупки и сервис»</b>В магазине, у кассы, возврат товара.</figcaption></figure>
+        <figure class="shot"><div class="frame"><img src="media/p1-home.jpg" alt="Главная страница платформы A0–A2" loading="lazy"></div><figcaption><b>Главная</b>Навигация, ресурсы, заметки, таймер.</figcaption></figure>
+        <figure class="shot"><div class="frame"><img src="media/p4-words.jpg" alt="Карточки слов с озвучкой" loading="lazy" style="aspect-ratio:1200/565"></div><figcaption><b>Слова с озвучкой</b>Кнопка Hören у каждого слова.</figcaption></figure>
+        <figure class="shot"><div class="frame"><img src="media/p5-builder.jpg" alt="Упражнение собрать фразу" loading="lazy" style="aspect-ratio:1200/565"></div><figcaption><b>Собери фразу</b>Как в этом уроке. Проверка сразу.</figcaption></figure>
+        <figure class="shot"><div class="frame"><img src="media/p7-work.jpg" alt="Раздел: работа, документы, город" loading="lazy"></div><figcaption><b>Работа и город</b>JobCenter, собеседование, билеты.</figcaption></figure>
+        <figure class="shot"><div class="frame"><img src="media/p6-tracker.jpg" alt="Трекер привычек" loading="lazy"></div><figcaption><b>Трекер</b>Чтение, слушание, письмо, серии.</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="sheet rv">
+      <div class="quote">
+        <span class="qm" aria-hidden="true">“</span>
+        <div class="qline v i1"><span>Мне очень нравится</span></div>
+        <div class="qline b i2"><span>платформа Stellas</span></div>
+        <div class="qsrc">— из отзыва ученицы. Ниже — скриншоты как есть.</div>
+      </div>
+      <div class="revs">
+        <img src="media/r6.jpg" alt="Отзыв: удобно, что описаны темы по грамматике, подобраны упражнения и видео" loading="lazy">
+        <img src="media/r2.jpg" alt="Отзыв: перебрала много ресурсов, проблема разговорной речи" loading="lazy">
+        <img src="media/r5.jpg" alt="Отзыв: и скорость, и результат, и удовольствие" loading="lazy">
+        <img src="media/r1.jpg" alt="Отзыв: всё удобно и понятно" loading="lazy">
+        <img src="media/r3.jpg" alt="Отзыв: купила доступ год назад, платформа помогла" loading="lazy">
+        <img src="media/r4.jpg" alt="Отзыв: всё структурировано, ярко и понятно" loading="lazy">
+      </div>
+    </section>
+
+    <section class="sheet rv" id="price">
+      <p class="eyebrow">Тарифы</p>
+      <h2 class="h2"><span class="l">Was kostet das?</span> <span class="b">Сколько стоит</span></h2>
+      <p class="lead">Цену спрашивать ты теперь умеешь. Спрашиваешь. Отвечаем.</p>
+      <div class="tariffs">
+        <div class="tar">
+          <svg class="ico" viewBox="0 0 92 92"><ellipse cx="46" cy="80" rx="30" ry="6" fill="#000" opacity=".08"/><g><rect x="18" y="58" width="56" height="12" fill="url(#gBronzeD)"/><ellipse cx="46" cy="70" rx="28" ry="8" fill="url(#gBronzeD)"/><ellipse cx="46" cy="58" rx="28" ry="8" fill="url(#gBronze)"/></g><g><rect x="18" y="42" width="56" height="12" fill="url(#gBronzeD)"/><ellipse cx="46" cy="54" rx="28" ry="8" fill="url(#gBronzeD)"/><ellipse cx="46" cy="42" rx="28" ry="8" fill="url(#gBronze)"/></g><g><rect x="18" y="26" width="56" height="12" fill="url(#gBronzeD)"/><ellipse cx="46" cy="38" rx="28" ry="8" fill="url(#gBronzeD)"/><ellipse cx="46" cy="26" rx="28" ry="8" fill="url(#gBronze)"/><text x="46" y="30" text-anchor="middle" font-family="Montserrat,Arial" font-weight="800" font-size="11" fill="#fff">€</text></g></svg>
+          <h4>A0 — A2</h4>
+          <div class="for">Для тех, кто с нуля</div>
+          <ul>
+            <li>Гайды A0–A2 с видео и упражнениями</li>
+            <li>Лексика для жизни: магазин, врач, транспорт</li>
+            <li>Слова с озвучкой, трекер, фильмы по уровню</li>
+            <li class="off">Гайды B1–C1</li>
+            <li class="off">Экзаменационные темы в Gemini</li>
+          </ul>
+          <div class="price"><b>20 €</b><small>один раз · навсегда</small></div>
+          <a class="btn" href="https://app.lava.top/801303618?tabId=products&amp;sort=published" target="_blank" rel="noopener">Забрать доступ <svg><use href="#arrowUR"/></svg></a>
+        </div>
+        <div class="tar">
+          <svg class="ico" viewBox="0 0 92 92"><ellipse cx="46" cy="84" rx="28" ry="5" fill="#000" opacity=".08"/><path d="M32 30c0-10 6-16 14-16s14 6 14 16" stroke="url(#gBronzeD)" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M18 30h56l-5 50H23z" fill="url(#gBronze)"/><path d="M18 30h56l-1 8H19z" fill="#fff" opacity=".25"/><circle cx="34" cy="42" r="3" fill="#7a4d3a"/><circle cx="58" cy="42" r="3" fill="#7a4d3a"/></svg>
+          <h4>B1 — C1</h4>
+          <div class="for">Для тех, кто уже в теме</div>
+          <ul>
+            <li>Гайды B1–C1: грамматика и лексика</li>
+            <li>Экзаменационные темы в Gemini: TestDaF, Goethe C1, telc</li>
+            <li>Словарь, тексты, диалоги, тест, чат с ИИ</li>
+            <li class="off">Гайды A0–A2</li>
+            <li class="off">Украинская версия в подарок</li>
+          </ul>
+          <div class="price"><b>20 €</b><small>один раз · навсегда</small></div>
+          <a class="btn" href="https://app.lava.top/801303618?tabId=products&amp;sort=published" target="_blank" rel="noopener">Забрать доступ <svg><use href="#arrowUR"/></svg></a>
+        </div>
+        <div class="tar best">
+          <span class="flag">Выгоднее</span>
+          <svg class="ico" viewBox="0 0 92 92"><ellipse cx="46" cy="80" rx="32" ry="6" fill="#000" opacity=".08"/><path d="M12 30l16 14 18-26 18 26 16-14-6 38H18z" fill="url(#gBronze)"/><rect x="16" y="64" width="60" height="12" rx="3" fill="url(#gBronzeD)"/><circle cx="12" cy="28" r="5" fill="url(#gBronze)"/><circle cx="46" cy="16" r="5" fill="url(#gBronze)"/><circle cx="80" cy="28" r="5" fill="url(#gBronze)"/><circle cx="46" cy="52" r="5" fill="#fff" opacity=".55"/><circle cx="30" cy="70" r="2.5" fill="#fff" opacity=".6"/><circle cx="46" cy="70" r="2.5" fill="#fff" opacity=".6"/><circle cx="62" cy="70" r="2.5" fill="#fff" opacity=".6"/></svg>
+          <h4>A0 — C1</h4>
+          <div class="for">Всё сразу. Обе платформы</div>
+          <ul>
+            <li>Всё из A0–A2 и B1–C1</li>
+            <li>340+ гайдов, 7500+ слов с озвучкой</li>
+            <li>Раздел «Экзамены»: Goethe, telc, DTZ, ÖSD, TestDaF</li>
+            <li>Все будущие обновления бесплатно</li>
+            <li class="gift">Украинская версия A0–A2 в подарок</li>
+          </ul>
+          <div class="price"><s>40 €</s><b>30 €</b><small>один раз · навсегда</small></div>
+          <a class="btn" href="https://app.lava.top/801303618?tabId=products&amp;sort=published" target="_blank" rel="noopener">Забрать всё <svg><use href="#arrowUR"/></svg></a>
+        </div>
+      </div>
+      <div class="guar">
+        <span><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Платишь один раз</span>
+        <span><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Доступ навсегда</span>
+        <span><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Работает офлайн</span>
+      </div>
+      <p class="lead">30 евро — это примерно одна тележка в Lidl. Только тележка заканчивается за неделю.</p>
+    </section>
+
+    <section class="final rv">
+      <h2>Спросить цену ты уже умеешь</h2>
+      <div class="kasse">
+        <div>Ты: <span class="de">Was kostet die Plattform?</span></div>
+        <div>Мы: <span class="de">Dreißig Euro. Einmal.</span></div>
+        <div>Ты: <span class="de">Mit Karte, bitte.</span></div>
+      </div>
+      <p>Услышал «dreißig» и понял, что это 30? Значит, урок сработал. Дальше — вся тема и ещё 340 таких.</p>
+      <a class="btn" href="https://app.lava.top/801303618?tabId=products&amp;sort=published" target="_blank" rel="noopener">Купить доступ <svg><use href="#arrowUR"/></svg></a>
+      <div class="tg">Вопросы — в Telegram: <b>@stellasdeutsch</b></div>
+    </section>
+
+    <footer>© Stellas · немецкий для жизни в Германии</footer>
+  </main>
+</div>
+
+<div class="sticky" id="sticky">
+  <a href="https://app.lava.top/801303618?tabId=products&amp;sort=published" target="_blank" rel="noopener">
+    <span><small>Вся тема «Покупки» и 340+ гайдов</small><b>A0 — C1 · 30 €</b></span>
+    <span class="btn">Забрать <svg><use href="#arrowUR"/></svg></span>
+  </a>
+</div>
+
+<script>
+(function(){
+  var RM = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $ = function(s,r){return (r||document).querySelector(s)};
+  var $$ = function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+  function sp(){return '<svg><use href="#speaker"/></svg>'}
+
+  /* ---------- speech ---------- */
+  var synth = window.speechSynthesis, deVoice = null;
+  function pickVoice(){
+    if(!synth) return;
+    var v = synth.getVoices() || [];
+    deVoice = v.filter(function(x){return /^de(-|_)?/i.test(x.lang) && /Google|Anna|Helena|Katja|Petra|Markus|Yannick/i.test(x.name)})[0]
+           || v.filter(function(x){return /^de/i.test(x.lang)})[0] || null;
+  }
+  if(synth){ pickVoice(); try{ synth.addEventListener('voiceschanged', pickVoice); }catch(e){ synth.onvoiceschanged = pickVoice; } }
+  function speak(text, btn, rate){
+    if(!synth || !window.SpeechSynthesisUtterance){
+      if(btn){ var o = btn.getAttribute('data-label') || btn.innerHTML; btn.setAttribute('data-label', o); btn.textContent = 'нет озвучки'; setTimeout(function(){ btn.innerHTML = o; }, 1400); }
+      return;
+    }
+    try{
+      synth.cancel();
+      var u = new SpeechSynthesisUtterance(text);
+      u.lang = 'de-DE'; if(deVoice) u.voice = deVoice; u.rate = rate || .9;
+      if(btn){ btn.classList.add('is-playing'); u.onend = u.onerror = function(){ btn.classList.remove('is-playing'); }; }
+      synth.speak(u);
+    }catch(e){}
+  }
+  document.addEventListener('click', function(e){
+    var b = e.target.closest('[data-say]');
+    if(b) speak(b.getAttribute('data-say'), b.classList.contains('say') ? b : b.querySelector('.say'));
+  });
+
+  /* ---------- reveal ---------- */
+  if('IntersectionObserver' in window && !RM){
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, {rootMargin:'0px 0px -6% 0px'});
+    $$('.rv').forEach(function(el){ if(el.getBoundingClientRect().top > innerHeight * .95){ el.classList.add('pre'); io.observe(el); } });
+  }
+
+  /* ---------- count up ---------- */
+  function countUp(el){
+    var to = +el.getAttribute('data-count'), t0 = null, d = 1100;
+    if(RM){ el.textContent = to; return; }
+    function f(t){ if(!t0) t0 = t; var p = Math.min(1,(t-t0)/d); el.textContent = Math.round(to * (1 - Math.pow(1-p,3))); if(p<1) requestAnimationFrame(f); }
+    requestAnimationFrame(f);
+  }
+  if('IntersectionObserver' in window){
+    var cio = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ countUp(e.target); cio.unobserve(e.target); } }); }, {threshold:.6});
+    $$('[data-count]').forEach(function(el){ cio.observe(el); });
+  }
+
+  /* ---------- story carousel ---------- */
+  var track = $('#storyTrack'), slides = $$('.slide', track), prev = $('#storyPrev'), next = $('#storyNext'), now = $('#storyNow');
+  function perView(){ return innerWidth >= 760 ? 2 : 1; }
+  function idx(){ var w = slides[0].getBoundingClientRect().width + 16; return Math.round(track.scrollLeft / w); }
+  function upd(){ var i = idx(), last = slides.length - perView(); now.textContent = ('0' + Math.min(slides.length, i + 1)).slice(-2); prev.disabled = i <= 0; next.disabled = i >= last; }
+  function go(d){ var w = slides[0].getBoundingClientRect().width + 16; track.scrollTo({left:(idx()+d)*w, behavior: RM ? 'auto' : 'smooth'}); }
+  prev.addEventListener('click', function(){ go(-1); });
+  next.addEventListener('click', function(){ go(1); });
+  track.addEventListener('scroll', function(){ requestAnimationFrame(upd); }, {passive:true});
+  addEventListener('resize', upd); upd();
+
+  /* ---------- explainer engine ---------- */
+  function explainer(root, steps, render){
+    var i = 0, timer = null, touched = false, dots = $('.dots', root), cap = root.querySelector('.cap');
+    dots.innerHTML = steps.map(function(){ return '<i></i>'; }).join('');
+    var nextBtn = $('.next', root), prevBtn = $('.prev', root);
+    function show(n){
+      i = (n + steps.length) % steps.length;
+      root.setAttribute('data-step', i);
+      $$('i', dots).forEach(function(d,k){ d.classList.toggle('on', k === i); });
+      cap.innerHTML = '<p>' + steps[i] + '</p>';
+      nextBtn.innerHTML = i === steps.length - 1 ? 'Заново <svg><use href="#arrowR"/></svg>' : 'Дальше <svg><use href="#arrowR"/></svg>';
+      prevBtn.disabled = i === 0; prevBtn.style.opacity = i === 0 ? .4 : 1;
+      if(render) render(i);
+    }
+    function stop(){ touched = true; clearInterval(timer); timer = null; }
+    nextBtn.addEventListener('click', function(){ stop(); show(i + 1); });
+    prevBtn.addEventListener('click', function(){ stop(); if(i > 0) show(i - 1); });
+    show(0);
+    if('IntersectionObserver' in window && !RM){
+      var o = new IntersectionObserver(function(es){ es.forEach(function(e){
+        if(e.isIntersecting && !touched && !timer){ timer = setInterval(function(){ if(i >= steps.length - 1){ clearInterval(timer); timer = null; touched = true; return; } show(i + 1); }, 3600); }
+        else if(!e.isIntersecting && timer){ clearInterval(timer); timer = null; }
+      }); }, {threshold:.55});
+      o.observe(root);
+    }
+  }
+
+  /* step 1: kostet / kosten */
+  var COST = [
+    {ph:'Was kostet <b class="chg">das</b>?', say:'Was kostet das?', n:1, tag:'1 штука · показываешь пальцем',
+     cap:'Не знаешь, как называется — показываешь пальцем. Говоришь <b>das</b>. Работает везде. Проверено на двадцати видах булочек.'},
+    {ph:'Was kostet <b class="chg">das Brötchen</b>?', say:'Was kostet das Brötchen?', n:1, tag:'1 штука → kostet',
+     cap:'Знаешь слово — ставишь его вместо <b>das</b>. Одна штука — глагол <b>kostet</b>.'},
+    {ph:'Was kost<b class="chg">en</b> <b class="chg">die</b> Brötchen?', say:'Was kosten die Brötchen?', n:3, tag:'много штук → kosten',
+     cap:'Много штук — <b>kosten</b>. Сама булочка во множественном числе так и остаётся Brötchen. Немцы на ней сэкономили. На глаголе — нет.'},
+    {ph:'<b class="chg">Wie viel</b> kostet das?', say:'Wie viel kostet das?', n:1, tag:'то же самое, длиннее',
+     cap:'То же самое, только длиннее. Выбирай любую. Кассирша поймёт обе.'}
+  ];
+  var bunEls = $$('#buns svg');
+  explainer($('#exCost'), COST.map(function(s){ return s.cap; }), function(i){
+    var s = COST[i];
+    $('#costPhrase').innerHTML = s.ph;
+    $('#costTag').textContent = s.tag;
+    $('#costSay').setAttribute('data-say', s.say);
+    bunEls.forEach(function(b,k){ b.classList.toggle('off', k >= s.n); });
+  });
+
+  /* step 2: price */
+  var PSAY = ['zwei Euro neunundvierzig','zwei Euro','neunundvierzig','zwei neunundvierzig'];
+  explainer($('#exPrice'), [
+    'Вот ценник. <b>2,49 €</b>. Сейчас прочитаем его так, как прочитает кассир.',
+    'Запятая делит евро и центы. До запятой — евро: <b>zwei Euro</b>.',
+    'Теперь 49. Немцы читают его задом наперёд: сначала девять, потом сорок. <b>Neun-und-vierzig</b>. Как «девять-и-сорок». Поэтому «айнс» в пекарне и был евро, а не всей ценой.',
+    'В жизни «Euro» часто глотают, а «Cent» не говорят вообще. Кассир скажет: <b>zwei neunundvierzig</b>. Готово, ты понял цену.'
+  ], function(i){ $('#priceSay').setAttribute('data-say', PSAY[i]); });
+
+  /* step 3: articles */
+  explainer($('#exArt'), [
+    'Три слова, три рода. В словаре они с der, die, das.',
+    'Говоришь <b>Ich hätte gern</b> — и мужской род меняется: <b>der → einen</b>. <b>Einen Apfel</b>. Это и есть аккузатив, только без страшного слова.',
+    'Женский и средний просто берут «один»: <b>eine Brezel</b>, <b>ein Brötchen</b>. Без сюрпризов.',
+    'Итог: по-настоящему меняется только мужской род. Запомни один <b>Apfel</b> — и хватит. Нажми на карточку, чтобы послушать фразу целиком.'
+  ]);
+
+  /* ---------- number words + trainer ---------- */
+  var ONES = ['null','eins','zwei','drei','vier','fünf','sechs','sieben','acht','neun','zehn','elf','zwölf','dreizehn','vierzehn','fünfzehn','sechzehn','siebzehn','achtzehn','neunzehn'];
+  var TENS = ['','','zwanzig','dreißig','vierzig','fünfzig','sechzig','siebzig','achtzig','neunzig'];
+  function num(n){ if(n < 20) return ONES[n]; var t = Math.floor(n/10), o = n % 10; return o ? (o === 1 ? 'ein' : ONES[o]) + 'und' + TENS[t] : TENS[t]; }
+  function words(e,c){ var eu = e === 1 ? 'ein' : num(e); return c ? eu + ' Euro ' + num(c) : eu + ' Euro'; }
+  function fmt(e,c){ return e + ',' + ('0' + c).slice(-2); }
+  function rnd(a,b){ return a + Math.floor(Math.random() * (b - a + 1)); }
+  var cur = null, answered = false, ok = 0, total = 0;
+  function newPrice(){
+    var e = rnd(1,12), u = rnd(1,9), t = rnd(2,9); while(t === u) t = rnd(2,9);
+    var c = t*10 + u, swap = u*10 + t, near = ((t % 9) + 2) * 10 + u;
+    if(near === c || near === swap) near = ((t + 3) % 8 + 2) * 10 + u;
+    var opts = [[e,c],[e,swap],[e,near]].sort(function(){ return Math.random() - .5; });
+    cur = {e:e, c:c, opts:opts}; answered = false;
+    $('#tOpts').innerHTML = opts.map(function(o,k){ return '<button type="button" data-k="'+k+'">' + fmt(o[0],o[1]) + ' €</button>'; }).join('');
+    $('#tFb').innerHTML = 'Жми на кнопку. Кассир назовёт цену. Выбери, что услышал.';
+    $('#tShow').textContent = 'Показать словами';
+  }
+  $('#tPlay').addEventListener('click', function(){ speak('Das macht ' + words(cur.e,cur.c) + '.', null, .85); });
+  $('#tShow').addEventListener('click', function(){ $('#tFb').innerHTML = 'Кассир говорит: <b>' + words(cur.e,cur.c) + '</b>'; });
+  $('#tNext').addEventListener('click', newPrice);
+  $('#tOpts').addEventListener('click', function(e){
+    var b = e.target.closest('button'); if(!b || answered) return;
+    var o = cur.opts[+b.getAttribute('data-k')], right = o[1] === cur.c;
+    total++; if(right){ ok++; answered = true; b.classList.add('ok');
+      $('#tFb').innerHTML = 'Да. <b>' + words(cur.e,cur.c) + '</b>. Сначала единицы, потом десятки.';
+    } else { b.classList.add('no'); b.disabled = true;
+      var sw = o[1] === (cur.c % 10) * 10 + Math.floor(cur.c / 10);
+      $('#tFb').innerHTML = sw ? 'Классика. Это цифры наоборот. Немец сказал <b>' + num(cur.c % 10) + '</b> первым — это единицы. Послушай ещё раз.' : 'Мимо. Послушай ещё раз, особенно конец.';
+    }
+    $('#tScore').textContent = ok + ' из ' + total;
+  });
+  newPrice();
+
+  /* ---------- timeline ---------- */
+  var TL = [
+    ['Hallo!','Привет!','Hallo!','Да, так просто. Можно Guten Tag, если хочется солиднее.'],
+    ['Sonst noch etwas?','Что-нибудь ещё?','Nein, danke. Das ist alles.','Не «ja». Я проверял. Очередь проверяла вместе со мной.'],
+    ['Haben Sie eine Payback-Karte?','У вас есть карта Payback?','Nein.','Спросят почти везде. Это бонусная карта, не оплата.'],
+    ['Das macht sieben achtzig.','С вас 7,80.','— смотришь на табло','Das macht = «с вас». Дальше цена, как в шаге 2.'],
+    ['Mit Karte oder bar?','Картой или наличными?','Mit Karte, bitte.','Bar — наличными. Karte — картой.'],
+    ['Brauchen Sie eine Tüte?','Нужен пакет?','Nein, danke. Ich habe eine.','Пакет платный. Свой — бесплатный.'],
+    ['Möchten Sie den Kassenbon?','Чек нужен?','Nein, danke.','Можно не брать. Никто не обидится.'],
+    ['Schönen Tag noch!','Хорошего дня!','Danke, gleichfalls!','Gleichfalls — «и вам того же». Одно слово, а выглядишь местным.']
+  ];
+  function tlItem(t,k){
+    return '<div class="tl-item"><div class="tl-n">0'+(k+1)+'</div><div><div class="tl-q"><span class="de">'+t[0]+'</span><button class="say round" type="button" data-say="'+t[0]+'" aria-label="Послушать">'+sp()+'</button></div>'
+      + '<div class="tl-a">'+t[1]+' → '+(t[2].charAt(0) === '—' ? t[2] : '<b>'+t[2]+'</b>')+'<em>'+t[3]+'</em></div></div></div>';
+  }
+  var queen = '<svg class="queen" viewBox="0 0 160 280" aria-hidden="true"><ellipse cx="80" cy="266" rx="66" ry="10" fill="#000" opacity=".08"/><rect x="22" y="232" width="116" height="30" rx="10" fill="url(#gQueen)"/><ellipse cx="80" cy="232" rx="58" ry="10" fill="#f4f2f7"/><path d="M38 230C52 190 60 150 62 118h36c2 32 10 72 24 112z" fill="url(#gQueen)"/><ellipse cx="80" cy="116" rx="32" ry="9" fill="url(#gQueen)"/><ellipse cx="80" cy="102" rx="25" ry="7" fill="#f1eef5"/><path d="M56 98L48 56l16 18 8-28 8 24 8-24 8 28 16-18-8 42z" fill="url(#gQueen)"/><circle cx="80" cy="36" r="9" fill="url(#gQueen)"/><path d="M66 130c-2 30-8 60-18 92" stroke="#fff" stroke-width="4" opacity=".7" fill="none" stroke-linecap="round"/></svg>';
+  $('#tl').innerHTML = '<div class="tl-col">' + TL.slice(0,4).map(tlItem).join('') + '</div>' + queen + '<div class="tl-col">' + TL.slice(4).map(function(t,k){ return tlItem(t,k+4); }).join('') + '</div>';
+
+  /* ---------- simulator ---------- */
+  var SIM = [
+    {q:'Hallo! Sonst noch etwas?', ru:'Привет! Что-нибудь ещё?', opts:[
+      ['Ja.','Кассирша ждёт, что ты ещё что-то положишь на ленту. Ты ничего не кладёшь. Она ждёт. Очередь тоже ждёт.'],
+      ['Nein, danke. Das ist alles.',null],
+      ['Was kostet das?','Она молча показывает на табло. Там уже всё написано.']]},
+    {q:'Haben Sie eine Payback-Karte?', ru:'У вас есть карта Payback?', opts:[
+      ['Mit Karte, bitte.','Payback — бонусная карта, а не оплата. Сейчас она ждёт «да» или «нет».'],
+      ['Danke, gleichfalls!','Рано прощаешься. Касса ещё не закончилась.'],
+      ['Nein.',null]]},
+    {q:'Das macht sieben achtzig. Mit Karte oder bar?', ru:'С вас 7,80. Картой или наличными?', opts:[
+      ['Sieben achtzig.','Она знает, сколько. Она спрашивает, как ты платишь.'],
+      ['Mit Karte, bitte.',null],
+      ['Nein, danke.','«Нет» на вопрос «картой или наличными». Сильный ход. Но нет.']]},
+    {q:'Brauchen Sie eine Tüte?', ru:'Нужен пакет?', opts:[
+      ['Nein, danke. Ich habe eine.',null],
+      ['Ja, bar.','Пакет наличными — это что-то новое. Она не поняла. Честно говоря, мы тоже.'],
+      ['Das macht sieben achtzig.','Это её реплика, не твоя. Меняться ролями рано.']]},
+    {q:'Schönen Tag noch!', ru:'Хорошего дня!', opts:[
+      ['Hallo!','Поздороваться на выходе — смело. Попробуй попрощаться.'],
+      ['Danke, gleichfalls!',null],
+      ['Sonst noch etwas?','Теперь ты спрашиваешь её, не надо ли ей чего-то ещё. Трогательно. Но нет.']]}
+  ];
+  var log = $('#simLog'), ch = $('#simChoices'), sIdx = 0, sErr = 0, sound = true, interacted = false;
+  $('#simSound').addEventListener('click', function(){ sound = !sound; this.setAttribute('aria-pressed', sound); this.textContent = sound ? 'Звук вкл' : 'Звук выкл'; });
+  function add(html, cls){ var d = document.createElement('div'); d.className = 'msg ' + cls; d.innerHTML = html; log.appendChild(d); log.scrollTop = log.scrollHeight; return d; }
+  function kMsg(s){ return add('<div class="row"><span><span class="de2">'+s.q+'</span><small>'+s.ru+'</small></span><button class="say" type="button" data-say="'+s.q+'" aria-label="Послушать">'+sp()+'</button></div>', 'k'); }
+  function ask(first){
+    var s = SIM[sIdx];
+    ch.innerHTML = '';
+    function put(){
+      kMsg(s);
+      if(sound && interacted) speak(s.q, null, .9);
+      ch.innerHTML = s.opts.map(function(o,k){ return '<button type="button" data-k="'+k+'">'+o[0]+'</button>'; }).join('');
+    }
+    if(first || RM){ put(); return; }
+    var t = document.createElement('div'); t.className = 'typing'; t.innerHTML = '<i></i><i></i><i></i>'; log.appendChild(t); log.scrollTop = log.scrollHeight;
+    setTimeout(function(){ t.remove(); put(); }, 750);
+  }
+  ch.addEventListener('click', function(e){
+    var b = e.target.closest('button'); if(!b || b.disabled) return;
+    interacted = true;
+    var s = SIM[sIdx], o = s.opts[+b.getAttribute('data-k')];
+    add(o[0], 'u');
+    if(o[1]){ sErr++; b.disabled = true; add(o[1], 'n'); return; }
+    sIdx++;
+    if(sIdx < SIM.length){ ask(false); } else { finish(); }
+  });
+  function finish(){
+    ch.innerHTML = '';
+    var verdict = sErr === 0 ? 'Без единой ошибки. Кассирша улыбнулась. Очередь даже не заметила, что ты не местный.' : sErr < 3 ? 'Ошибок: ' + sErr + '. Очередь пару раз вздохнула. Но ты с покупками. Это главное.' : 'Ошибок: ' + sErr + '. Зато теперь ты знаешь все неправильные ответы. Пройди ещё раз.';
+    add(verdict, 'n good');
+    var end = document.createElement('div'); end.className = 'sim-end';
+    end.innerHTML = '<div class="receipt"><div class="c hd">REWE</div><hr><div class="ln"><span>Äpfel 1 kg</span><span>2,49</span></div><div class="ln"><span>Brot</span><span>2,19</span></div><div class="ln"><span>Butter</span><span>2,29</span></div><div class="ln"><span>Hafermilch</span><span>0,83</span></div><hr><div class="ln sum"><span>SUMME</span><span>7,80</span></div><div class="ln"><span>Karte</span><span>7,80</span></div><hr><div class="c">Danke, gleichfalls!</div></div><button type="button" class="btn btn-sm" id="simAgain">Пройти ещё раз</button>';
+    ch.appendChild(end);
+    $('#simAgain').addEventListener('click', function(){ log.innerHTML = ''; sIdx = 0; sErr = 0; ask(false); });
+  }
+  ask(true);
+
+  /* ---------- builder ---------- */
+  var TASKS = [
+    {ru:'Сколько это стоит?', de:['Was','kostet','das?'], extra:'kosten', hint:'Вопрос начинается с Was. Одна вещь — значит kostet.'},
+    {ru:'Мне бы одно яблоко, пожалуйста.', de:['Ich','hätte','gern','einen','Apfel.'], extra:'ein', hint:'Apfel — мужской род. После hätte gern будет einen, а не ein.'},
+    {ru:'Нет, спасибо. Это всё.', de:['Nein,','danke.','Das','ist','alles.'], extra:'ja', hint:'Сначала вежливое «нет, спасибо». Потом «это всё».'},
+    {ru:'Картой, пожалуйста.', de:['Mit','Karte,','bitte.'], extra:'bar', hint:'Bar — это наличные. Тебе нужна карта.'}
+  ];
+  var bI = 0, bOk = 0, solved = false, zone = $('#bZone'), pool = $('#bPool'), fb = $('#bFb');
+  function shuffle(a){ a = a.slice(); for(var i = a.length - 1; i > 0; i--){ var j = Math.floor(Math.random() * (i + 1)), t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+  function chip(w){ return '<button type="button" class="w-chip">'+w+'</button>'; }
+  function loadTask(){
+    var t = TASKS[bI]; solved = false;
+    $('#bStep').textContent = 'Задание ' + (bI + 1) + ' из ' + TASKS.length;
+    $('#bRu').textContent = t.ru;
+    zone.innerHTML = ''; zone.className = 'b-zone';
+    var words = shuffle(t.de.concat([t.extra]));
+    if(words.join(' ') === t.de.concat([t.extra]).join(' ')) words.reverse();
+    pool.innerHTML = words.map(chip).join('');
+    fb.textContent = ''; fb.className = 'b-fb';
+    $('#bCheck').textContent = 'Проверить';
+  }
+  pool.addEventListener('click', function(e){ var b = e.target.closest('.w-chip'); if(b && !solved){ zone.appendChild(b); zone.className = 'b-zone'; fb.textContent = ''; } });
+  zone.addEventListener('click', function(e){ var b = e.target.closest('.w-chip'); if(b && !solved){ pool.appendChild(b); zone.className = 'b-zone'; } });
+  $('#bReset').addEventListener('click', loadTask);
+  $('#bCheck').addEventListener('click', function(){
+    if(solved){ bI = (bI + 1) % TASKS.length; loadTask(); return; }
+    var t = TASKS[bI], got = $$('.w-chip', zone).map(function(b){ return b.textContent; });
+    if(!got.length){ fb.textContent = 'Сначала нажми на слова. По одному.'; fb.className = 'b-fb'; return; }
+    if(got.join(' ') === t.de.join(' ')){
+      solved = true; bOk++; zone.className = 'b-zone ok';
+      fb.textContent = 'Wunderbar! Так и скажешь на кассе.'; fb.className = 'b-fb ok';
+      $('#bScore').textContent = '✓ ' + bOk;
+      $('#bCheck').textContent = bI === TASKS.length - 1 ? 'Сначала' : 'Следующее';
+      speak(t.de.join(' '), null, .9);
+    } else {
+      zone.className = 'b-zone no'; void zone.offsetWidth;
+      fb.textContent = 'Почти. ' + t.hint; fb.className = 'b-fb no';
+    }
+  });
+  loadTask();
+
+  /* ---------- cheat sheet ---------- */
+  var CS = [
+    ['Спросить','Was kostet das?','Сколько это стоит?'],
+    ['Спросить','Was kosten die Äpfel?','Сколько стоят яблоки?'],
+    ['Заказать','Ich hätte gern einen Kaffee.','Мне бы кофе, пожалуйста.'],
+    ['Найти','Wo finde ich die Milch?','Где найти молоко?'],
+    ['Касса','Nein, danke. Das ist alles.','Нет, спасибо. Это всё.'],
+    ['Касса','Mit Karte, bitte.','Картой, пожалуйста.'],
+    ['Касса','Ich brauche keine Tüte.','Пакет не нужен.'],
+    ['Уйти','Danke, gleichfalls!','Спасибо, и вам того же!']
+  ];
+  $('#cards').innerHTML = CS.map(function(c){ return '<div class="card"><span class="k">'+c[0]+'</span><span class="d">'+c[1]+'</span><span class="r">'+c[2]+'</span><button class="say" type="button" data-say="'+c[1]+'">'+sp()+'Hören</button></div>'; }).join('');
+
+  /* ---------- sticky CTA ---------- */
+  var sticky = $('#sticky'), pastHero = false, atPrice = false;
+  function st(){ sticky.classList.toggle('show', pastHero && !atPrice); }
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){ pastHero = !es[0].isIntersecting && es[0].boundingClientRect.top < 0; st(); }).observe($('#hero'));
+    var hideEls = [$('#price'), $('.final')], vis = {};
+    var po = new IntersectionObserver(function(es){ es.forEach(function(e){ vis[e.target.id || 'final'] = e.isIntersecting; }); atPrice = Object.keys(vis).some(function(k){ return vis[k]; }); st(); });
+    hideEls.forEach(function(el){ po.observe(el); });
+  }
+})();
+</script>
+
+</body>
+</html>
