@@ -467,6 +467,136 @@ footer{padding:28px 0 10px;text-align:center;font-size:12px;color:var(--muted)}
 .sticky b{display:block;font-size:13.5px}
 .sticky .btn{padding:12px 16px;font-size:11px;box-shadow:none}
 
+
+/* ===== v2: visuals & motion ===== */
+@property --a{syntax:'<angle>';inherits:false;initial-value:0deg}
+.nav-in{position:relative}
+.progress{position:absolute;left:16px;right:16px;bottom:3px;height:3px;border-radius:3px;background:#efe8f8;overflow:hidden}
+.progress i{display:block;height:100%;width:100%;transform-origin:left;transform:scaleX(0);background:var(--pill)}
+
+/* conveyor belt */
+.belt{position:relative;height:150px;margin:6px auto 0;max-width:640px}
+.belt-surface{position:absolute;left:0;right:0;bottom:14px;height:30px;border-radius:12px;background:repeating-linear-gradient(90deg,#2b2731 0 22px,#35303d 22px 44px);box-shadow:inset 0 -6px 0 #1d1a22,0 22px 30px -18px rgba(30,15,60,.65);animation:beltMove .9s linear infinite}
+.belt-surface::before,.belt-surface::after{content:"";position:absolute;top:50%;width:24px;height:24px;margin-top:-12px;border-radius:50%;background:radial-gradient(circle,#6b6475 0 3px,#3a3543 4px 100%);box-shadow:0 0 0 3px #1d1a22}
+.belt-surface::before{left:-6px}.belt-surface::after{right:-6px}
+@keyframes beltMove{to{background-position:44px 0}}
+.item{position:absolute;bottom:40px;left:-12%;width:62px;height:62px;animation:ride 8s linear infinite;animation-delay:var(--dl)}
+.item svg{width:100%;height:100%;filter:drop-shadow(0 8px 5px rgba(20,10,40,.3))}
+.item em{position:absolute;left:50%;top:-30px;background:#fff;color:var(--vt);font-style:normal;font-family:var(--mono);font-weight:600;font-size:12px;padding:3px 8px;border-radius:8px;white-space:nowrap;box-shadow:0 8px 16px -8px rgba(60,40,90,.5);opacity:0;transform:translate(-50%,8px) scale(.7);animation:priceTag 8s linear infinite;animation-delay:var(--dl)}
+@keyframes ride{0%{left:-12%;opacity:0}8%,92%{opacity:1}100%{left:100%;opacity:0}}
+@keyframes priceTag{0%,47%{opacity:0;transform:translate(-50%,8px) scale(.7)}53%,70%{opacity:1;transform:translate(-50%,0) scale(1)}78%,100%{opacity:0;transform:translate(-50%,-6px) scale(.9)}}
+.scanner{position:absolute;left:50%;bottom:14px;width:84px;height:104px;margin-left:-42px;pointer-events:none}
+.scanner::before{content:"";position:absolute;left:0;right:0;top:0;height:14px;border-radius:8px 8px 3px 3px;background:linear-gradient(180deg,#4a4454,#2a2631)}
+.beam{position:absolute;left:50%;top:14px;bottom:4px;width:3px;margin-left:-1.5px;border-radius:3px;background:#ff5a5a;box-shadow:0 0 14px 4px rgba(255,80,80,.65);opacity:.18;animation:beam 2s linear infinite}
+@keyframes beam{0%{opacity:1}12%,88%{opacity:.18}100%{opacity:1}}
+.lcd{display:inline-flex;gap:8px;align-items:baseline;background:#0f1913;color:#6dff9e;font-family:var(--mono);border-radius:8px;padding:5px 10px;font-size:10.5px;letter-spacing:.08em;box-shadow:inset 0 0 0 1px #1f3a2a,0 10px 18px -10px rgba(0,0,0,.6)}
+.lcd b{font-size:16px;letter-spacing:.04em;text-shadow:0 0 8px rgba(109,255,158,.6);font-variant-numeric:tabular-nums}
+.lcd.flash b{animation:lcdF .35s ease}
+@keyframes lcdF{50%{color:#fff;text-shadow:0 0 14px #6dff9e}}
+.belt .lcd{position:absolute;left:6px;top:0}
+
+/* ribbons */
+.ribbons{position:relative;height:150px;overflow:hidden;margin-inline:-16px}
+.rib{position:absolute;left:-8%;right:-8%;padding:13px 0;white-space:nowrap;overflow:hidden}
+.rib.r1{top:24px;background:var(--pill);color:#fff;transform:rotate(-4deg);z-index:2;box-shadow:0 18px 30px -16px rgba(120,50,200,.7)}
+.rib.r2{top:74px;background:#fff;color:var(--vt);transform:rotate(3deg);box-shadow:0 14px 26px -18px rgba(60,40,90,.5)}
+.track{display:inline-flex;gap:26px;padding-left:26px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;font-size:14px;animation:marq 34s linear infinite}
+.r2 .track{animation-direction:reverse;animation-duration:40s}
+.track b{font-weight:800;color:var(--b1)}
+.r2 .track b{color:var(--b2)}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* story scenes */
+.scn{height:124px;border-radius:16px;background:linear-gradient(180deg,#fff,#f1ecf8);display:grid;place-items:center;overflow:hidden;margin-bottom:6px;box-shadow:inset 0 0 0 1px #ece5f5}
+.scn svg{height:100%;width:100%;max-width:100%}
+.bob{animation:bob 2.4s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-3px)}}
+.tap{animation:hop 4.8s infinite}
+@keyframes hop{0%,18%{transform:translate(0,0)}22%,40%{transform:translate(102px,0)}44%,62%{transform:translate(34px,44px)}66%,84%{transform:translate(136px,44px)}88%,100%{transform:translate(0,0)}}
+.tap circle{animation:ring 1.2s ease-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes ring{0%{transform:scale(.6);opacity:1}100%{transform:scale(1.25);opacity:.2}}
+.qd circle{animation:blink 1.2s infinite}
+.qd circle:nth-child(2){animation-delay:.2s}.qd circle:nth-child(3){animation-delay:.4s}
+.drop1{animation:drop1 5s cubic-bezier(.3,.7,.3,1) infinite}
+.drop2{animation:drop2 5s cubic-bezier(.3,.7,.3,1) infinite}
+@keyframes drop1{0%{transform:translateY(-80px);opacity:0}8%{opacity:1}18%{transform:translateY(0)}23%{transform:translateY(-9px)}28%,90%{transform:translateY(0);opacity:1}100%{transform:translateY(0);opacity:0}}
+@keyframes drop2{0%,44%{transform:translateY(-80px);opacity:0}50%{opacity:1}60%{transform:translateY(0)}65%{transform:translateY(-9px)}70%,90%{transform:translateY(0);opacity:1}100%{opacity:0}}
+.swing{transform-origin:144px 50px;animation:swing 2.6s ease-in-out infinite}
+@keyframes swing{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(9deg)}}
+.awn{animation:awn 3s ease-in-out infinite;transform-origin:120px 22px}
+@keyframes awn{50%{transform:scaleY(1.06)}}
+
+/* coins in price explainer */
+.coins{display:flex;justify-content:center;align-items:flex-end;gap:5px;min-height:44px}
+.coin{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-family:var(--mono);font-weight:600;font-size:11px;opacity:0;transform:translateY(-34px) scale(.5);transition:transform .55s cubic-bezier(.2,.9,.3,1.45),opacity .3s;transition-delay:calc(var(--i,0)*110ms);box-shadow:inset 0 -3px 0 rgba(0,0,0,.14),0 8px 12px -8px rgba(0,0,0,.45)}
+.coin.eu{background:radial-gradient(circle,#ecc97a 0 44%,#bdb8c6 45% 49%,#dedbe4 50%);color:#5a4520}
+.coin.ct{width:32px;height:32px;background:radial-gradient(circle at 35% 30%,#f7e0a6,#c9982f);color:#6a4d12}
+.coin.cu{width:27px;height:27px;font-size:10px;background:radial-gradient(circle at 35% 30%,#f3bd98,#b5623a);color:#5a2a12}
+.coins .gap{width:14px}
+.ex-price:not([data-step="0"]) .coin.eu{opacity:1;transform:none}
+.ex-price[data-step="2"] .coin.ct,.ex-price[data-step="2"] .coin.cu,.ex-price[data-step="3"] .coin.ct,.ex-price[data-step="3"] .coin.cu{opacity:1;transform:none}
+
+/* basket */
+.art .pi{width:46px;height:46px;transition:transform .3s}
+.art:hover .pi{transform:translateY(-3px) rotate(-6deg)}
+.basket-wrap{display:grid;justify-items:center;gap:6px;margin-top:6px}
+.basket-box{position:relative}
+.basket{width:120px;height:84px}
+.basket.wob{animation:wob .5s}
+@keyframes wob{30%{transform:rotate(-6deg) scale(1.05)}60%{transform:rotate(4deg)}}
+.bcount{position:absolute;top:-4px;right:-8px;min-width:26px;height:26px;border-radius:13px;background:linear-gradient(135deg,#ecd3c1,#c49a7e);color:#fff;font-weight:800;font-size:12px;display:grid;place-items:center;padding:0 6px;box-shadow:0 8px 14px -8px rgba(150,100,70,.8)}
+.bnote{font-family:var(--mono);font-weight:600;font-size:13px;color:var(--vt);min-height:1.4em;text-align:center}
+.flyer{position:fixed;z-index:60;pointer-events:none;width:46px;height:46px}
+
+/* timeline progress */
+.tl.anim .tl-item .tl-n{opacity:.35;transform:scale(.85);transition:opacity .5s,transform .5s cubic-bezier(.2,.9,.3,1.4)}
+.tl.anim .tl-item .tl-q,.tl.anim .tl-item .tl-a{opacity:.5;transition:opacity .5s}
+.tl.anim .tl-item::before{transform-origin:top;transform:scaleY(0);transition:transform .9s ease}
+.tl.anim .tl-item.reached .tl-n{opacity:1;transform:none}
+.tl.anim .tl-item.reached .tl-q,.tl.anim .tl-item.reached .tl-a{opacity:1}
+.tl.anim .tl-item.reached::before{transform:scaleY(1)}
+.tl-item::before{background:linear-gradient(#b27cf5,#e2d6f2 70%,transparent)}
+
+/* simulator display */
+.lcd-row{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 0;border-bottom:1px solid #2c2833;min-height:52px}
+.scanlist{display:flex;flex-wrap:wrap;gap:4px;flex:1}
+.scanlist span{font-family:var(--mono);font-size:10.5px;color:#cfc6db;background:#26222c;border-radius:6px;padding:3px 6px;animation:fade .3s both}
+.lcd.paid{color:#fff;background:#1f7a4d;box-shadow:inset 0 0 0 1px #3fbf85}
+.lcd.paid b{text-shadow:none}
+
+/* floating coins */
+.fcoin{position:absolute;left:var(--x);top:var(--y);width:var(--s);height:var(--s);border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff3e6,#e2bea4 45%,#a97d63);color:#fff;display:grid;place-items:center;font-style:normal;font-weight:800;font-size:calc(var(--s)*.46);box-shadow:0 12px 22px -10px rgba(70,20,130,.55),inset 0 -3px 0 rgba(0,0,0,.12);animation:fl 6s ease-in-out infinite;animation-delay:var(--d);pointer-events:none;z-index:1}
+@keyframes fl{50%{transform:translateY(-16px) rotate(14deg)}}
+
+/* headings reveal */
+.h2>span{display:inline-block}
+.rv.pre .h2>span{opacity:0;transform:translateY(26px)}
+.rv.pre.in .h2>span{opacity:1;transform:none;transition:opacity .7s .1s,transform .8s cubic-bezier(.2,.8,.2,1) .1s}
+.rv.pre.in .h2>span+span{transition-delay:.28s}
+
+/* laptop flatten */
+.laptop{transition:transform 1s cubic-bezier(.2,.8,.2,1);transform-origin:50% 100%}
+.laptop.tilt{transform:perspective(1100px) rotateX(18deg) scale(.94)}
+.shot .frame{transition:transform .35s,box-shadow .35s}
+.shot:hover .frame{transform:translateY(-5px);box-shadow:0 28px 44px -26px rgba(60,40,90,.6),0 0 0 1px #e1d6f1}
+
+/* pricing */
+.tar{transition:transform .25s ease;transform-style:preserve-3d}
+.tar .ico{animation:icoF 4.5s ease-in-out infinite}
+.tar:nth-child(2) .ico{animation-delay:-1.5s}.tar:nth-child(3) .ico{animation-delay:-3s}
+@keyframes icoF{50%{transform:translateY(-8px)}}
+.tar.best{isolation:isolate}
+.tar.best::after{content:"";position:absolute;inset:-2px;border-radius:24px;padding:2px;background:conic-gradient(from var(--a),#e6d2fd,#9444ef,#ecd3c1,#c97bff,#e6d2fd);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:spinA 5s linear infinite;z-index:-1;pointer-events:none}
+@keyframes spinA{to{--a:360deg}}
+.stats .sgrid,.stats h3{z-index:2}
+.final .fcoin{opacity:.9}
+
+@media (prefers-reduced-motion:reduce){
+  .item{left:calc(var(--k)*23% + 4%)!important;opacity:1!important}
+  .item em{opacity:1!important;transform:translate(-50%,0)!important}
+  .coin{transition:none}
+}
+
 /* reveal */
 .rv.pre{opacity:0;transform:translateY(28px)}
 .rv.pre.in{opacity:1;transform:none;transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
@@ -504,6 +634,12 @@ footer{padding:28px 0 10px;text-align:center;font-size:12px;color:var(--muted)}
       <path d="M35 10c-3 10-3 22 0 36" stroke="#8a5530" stroke-width="2.4" fill="none" stroke-linecap="round" opacity=".55"/>
       <path d="M18 20c5 3 9 3 12 1M40 21c3 2 7 2 12-1" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" opacity=".35"/>
     </symbol>
+    <linearGradient id="gApple" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#ff9b86"/><stop offset=".55" stop-color="#e2493f"/><stop offset="1" stop-color="#a8261f"/></linearGradient>
+    <symbol id="apple" viewBox="0 0 60 60"><path d="M30 18c-6-5-20-4-21 10-1 13 9 27 15 27 3 0 4-2 6-2s3 2 6 2c6 0 16-14 15-27-1-14-15-15-21-10z" fill="url(#gApple)"/><path d="M30 19c0-6 3-10 8-12" stroke="#6b4a2b" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M33 13c5-5 12-4 14-2-3 5-9 6-14 2z" fill="#79bd68"/><ellipse cx="20" cy="29" rx="4" ry="7" fill="#fff" opacity=".35"/></symbol>
+    <symbol id="milk" viewBox="0 0 60 60"><path d="M19 16l5-9h12l5 9v39H19z" fill="#fff" stroke="#d9d3e3" stroke-width="2"/><path d="M19 16h22l-5-9H24z" fill="#ece8f2"/><rect x="19" y="28" width="22" height="15" fill="url(#gViolet)"/><text x="30" y="38.5" text-anchor="middle" font-family="Montserrat,Arial" font-weight="800" font-size="6.5" fill="#fff">MILCH</text></symbol>
+    <symbol id="cheese" viewBox="0 0 60 60"><path d="M6 38L40 18l14 10v2H6z" fill="#ffe08a"/><path d="M6 38h48V30L6 38z" fill="#f6c95b"/><path d="M6 38h48v10H6z" fill="#f1bb45"/><circle cx="20" cy="43" r="2.6" fill="#d99a2b"/><circle cx="36" cy="42" r="3.4" fill="#d99a2b"/><circle cx="47" cy="45" r="2" fill="#d99a2b"/><circle cx="34" cy="30" r="2.4" fill="#e5ad3a"/></symbol>
+    <symbol id="pretzel" viewBox="0 0 60 60"><path d="M30 42c-7-9-21-9-21 2 0 7 8 8 13 3M30 42c7-9 21-9 21 2 0 7-8 8-13 3M22 47C14 29 20 12 30 12s16 17 8 35" stroke="url(#gBun)" stroke-width="7" fill="none" stroke-linecap="round"/><circle cx="24" cy="22" r="1.2" fill="#fff"/><circle cx="36" cy="24" r="1.2" fill="#fff"/><circle cx="16" cy="44" r="1.2" fill="#fff"/></symbol>
+    <symbol id="person" viewBox="0 0 24 44"><circle cx="12" cy="8" r="7.5"/><rect x="2" y="17" width="20" height="27" rx="9"/></symbol>
     <symbol id="speaker" viewBox="0 0 24 24"><path d="M4 9h3l5-4v14l-5-4H4z" fill="currentColor"/><path class="w" d="M15.5 8.5a5 5 0 010 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/><path class="w" d="M18 6a8.5 8.5 0 010 12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></symbol>
     <symbol id="arrowUR" viewBox="0 0 16 16"><path d="M4 12L12 4M5.5 4H12v6.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="arrowR" viewBox="0 0 20 20"><path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
@@ -519,6 +655,7 @@ footer{padding:28px 0 10px;text-align:center;font-size:12px;color:var(--muted)}
         <span><b>STELLAS</b><small>немецкий для жизни</small></span>
       </a>
       <a class="btn btn-sm" href="https://app.lava.top/801303618?tabId=products&amp;sort=published" target="_blank" rel="noopener">Платформа <svg><use href="#arrowUR"/></svg></a>
+      <div class="progress" aria-hidden="true"><i id="prog"></i></div>
     </div>
   </header>
 
@@ -560,38 +697,57 @@ footer{padding:28px 0 10px;text-align:center;font-size:12px;color:var(--muted)}
         <div class="bub b3"><span class="ic" style="background:var(--pill)">Я</span><span>Mit Karte, bitte.<small>Картой, пожалуйста.</small></span></div>
       </div>
 
+
+      <div class="belt" aria-hidden="true">
+        <div class="lcd" id="beltLcd"><span>SUMME</span><b id="beltSum">0,49</b></div>
+        <div class="belt-surface"></div>
+        <div class="item" style="--dl:0s;--k:2"><svg viewBox="0 0 60 60"><use href="#milk"/></svg><em>1,19 €</em></div>
+        <div class="item" style="--dl:-2s;--k:1"><svg viewBox="0 0 70 56"><use href="#bun"/></svg><em>0,95 €</em></div>
+        <div class="item" style="--dl:-4s;--k:0"><svg viewBox="0 0 60 60"><use href="#apple"/></svg><em>0,49 €</em></div>
+        <div class="item" style="--dl:-6s;--k:3"><svg viewBox="0 0 60 60"><use href="#cheese"/></svg><em>2,29 €</em></div>
+        <div class="scanner"><i class="beam" id="beam"></i></div>
+      </div>
       <div class="hero-cta">
         <a class="btn" href="#story">Начать урок <svg><use href="#arrowR"/></svg></a>
         <a class="btn btn-ghost" href="#kasse">Сразу к кассе</a>
       </div>
     </section>
 
+    <div class="ribbons" aria-hidden="true">
+      <div class="rib r2"><div class="track"><span>Спроси</span><b>✦</b><span>Заплати</span><b>✦</b><span>Забери</span><b>✦</b><span>Einkaufen · A1</span><b>✦</b><span>12 минут</span><b>✦</b><span>Спроси</span><b>✦</b><span>Заплати</span><b>✦</b><span>Забери</span><b>✦</b><span>Einkaufen · A1</span><b>✦</b><span>12 минут</span><b>✦</b></div></div>
+      <div class="rib r1"><div class="track"><span>Was kostet das?</span><b>✦</b><span>Mit Karte, bitte</span><b>✦</b><span>Sonst noch etwas?</span><b>✦</b><span>Nein, danke</span><b>✦</b><span>Das ist alles</span><b>✦</b><span>Schönen Tag noch</span><b>✦</b><span>Was kostet das?</span><b>✦</b><span>Mit Karte, bitte</span><b>✦</b><span>Sonst noch etwas?</span><b>✦</b><span>Nein, danke</span><b>✦</b><span>Das ist alles</span><b>✦</b><span>Schönen Tag noch</span><b>✦</b></div></div>
+    </div>
     <!-- STORY -->
     <section class="sheet rv" id="story">
       <p class="eyebrow">История</p>
       <h2 class="h2"><span class="l">Как я покупал</span> <span class="b">две булочки</span></h2>
       <div class="story-track" id="storyTrack" tabindex="0" aria-label="История, листайте">
         <article class="slide">
+          <div class="scn" aria-hidden="true"><svg viewBox="0 0 240 124"><rect x="40" y="34" width="160" height="82" rx="6" fill="#fff" stroke="#e6def2" stroke-width="2"/><g class="awn"><path d="M32 24h176l-9 18H41z" fill="url(#gViolet)"/><path d="M56 24l-4 18M81 24l-2 18M106 24v18M131 24v18M156 24l2 18M181 24l4 18" stroke="#fff" stroke-width="7" opacity=".85"/></g><text x="120" y="17" text-anchor="middle" font-family="Montserrat,Arial" font-weight="800" font-size="10" letter-spacing="3" fill="#99705a">BÄCKEREI</text><rect x="54" y="56" width="84" height="46" rx="4" fill="#f7f2fb" stroke="#e6def2"/><g class="bob"><use href="#bun" x="60" y="72" width="36" height="29"/><use href="#bun" x="98" y="72" width="36" height="29"/></g><rect x="152" y="56" width="34" height="60" rx="3" fill="#efe7f8" stroke="#e0d4ef"/><circle cx="179" cy="88" r="2.6" fill="#b08fd8"/></svg></div>
           <span class="num">01</span>
           <p>Первая неделя в Германии. Захожу в пекарню. Хочу две булочки. Всё. Больше ничего не хочу.</p>
           <p>Дома фразу отрепетировал. <span class="de">Ich möchte zwei Brötchen.</span> Звучит уверенно. Почти как местный.</p>
         </article>
         <article class="slide">
+          <div class="scn" aria-hidden="true"><svg viewBox="0 0 240 124"><rect x="14" y="16" width="212" height="96" rx="10" fill="#fff" stroke="#e6def2" stroke-width="2"/><line x1="14" y1="64" x2="226" y2="64" stroke="#eee8f5" stroke-width="2"/><use href="#bun" x="24" y="32" width="30" height="24"/><use href="#pretzel" x="59" y="29" width="28" height="28"/><use href="#bun" x="92" y="32" width="30" height="24"/><use href="#pretzel" x="127" y="29" width="28" height="28"/><use href="#bun" x="160" y="32" width="30" height="24"/><use href="#pretzel" x="195" y="29" width="28" height="28"/><use href="#bun" x="24" y="78" width="30" height="24"/><use href="#pretzel" x="59" y="75" width="28" height="28"/><use href="#bun" x="92" y="78" width="30" height="24"/><use href="#pretzel" x="127" y="75" width="28" height="28"/><use href="#bun" x="160" y="78" width="30" height="24"/><use href="#pretzel" x="195" y="75" width="28" height="28"/><g class="tap"><circle cx="39" cy="44" r="17" fill="none" stroke="#9444ef" stroke-width="3"/></g></svg></div>
           <span class="num">02</span>
           <p>Подхожу. Говорю, <span class="de">ich möchte zwei Brötchen</span>. Продавщица говорит, <span class="de">welche?</span> И показывает на витрину.</p>
           <p>А там двадцать видов булочек. Говорю, <span class="de">diese</span>. Она берёт не ту. Говорю, <span class="de">nein, diese</span>. Опять не та.</p>
         </article>
         <article class="slide">
+          <div class="scn" aria-hidden="true"><svg viewBox="0 0 240 124"><rect x="0" y="94" width="240" height="4" fill="#eee8f5"/><rect x="176" y="58" width="56" height="36" rx="5" fill="url(#gViolet)"/><rect x="186" y="46" width="30" height="14" rx="3" fill="#0f1913"/><text x="201" y="56" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8" fill="#6dff9e">1,90</text><use href="#person" x="20" y="50" width="22" height="44" fill="#dccfee"/><use href="#person" x="50" y="50" width="22" height="44" fill="#dccfee"/><use href="#person" x="80" y="50" width="22" height="44" fill="#dccfee"/><use href="#person" x="110" y="50" width="22" height="44" fill="#dccfee"/><use href="#person" x="146" y="50" width="22" height="44" fill="#9444ef"/><g class="qd" transform="translate(142 30)"><rect x="-4" y="-8" width="34" height="16" rx="8" fill="#9444ef"/><text x="13" y="3.5" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-weight="600" font-size="9" fill="#fff">ja?</text></g><g class="qd" transform="translate(22 30)"><rect x="-4" y="-8" width="30" height="16" rx="8" fill="#fff" stroke="#e6def2"/><circle cx="4" cy="0" r="2" fill="#9a94a7"/><circle cx="11" cy="0" r="2" fill="#9a94a7"/><circle cx="18" cy="0" r="2" fill="#9a94a7"/></g><g class="qd" transform="translate(82 30)"><rect x="-4" y="-8" width="30" height="16" rx="8" fill="#fff" stroke="#e6def2"/><circle cx="4" cy="0" r="2" fill="#9a94a7"/><circle cx="11" cy="0" r="2" fill="#9a94a7"/><circle cx="18" cy="0" r="2" fill="#9a94a7"/></g></svg></div>
           <span class="num">03</span>
           <p>С третьей попытки угадали. Она говорит, <span class="de">sonst noch etwas?</span></p>
           <p>Я не знаю, что это. Говорю, <span class="de">ja</span>. На всякий случай. Она ждёт. Я тоже жду. Очередь сзади тоже ждёт.</p>
         </article>
         <article class="slide">
+          <div class="scn" aria-hidden="true"><svg viewBox="0 0 240 124"><text x="120" y="28" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-weight="600" font-size="15" fill="#7440c9">eins neunzig</text><rect x="36" y="98" width="168" height="10" rx="5" fill="#eee8f5"/><g class="drop1"><circle cx="102" cy="80" r="17" fill="#d4d0da"/><circle cx="102" cy="80" r="11" fill="url(#gBronze)"/><text x="102" y="84" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-weight="600" font-size="10" fill="#5a4520">1€</text></g><g class="drop2"><circle cx="138" cy="80" r="17" fill="#d4d0da"/><circle cx="138" cy="80" r="11" fill="url(#gBronze)"/><text x="138" y="84" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-weight="600" font-size="10" fill="#5a4520">1€</text></g></svg></div>
           <span class="num">04</span>
           <p>Говорю, <span class="de">nein, danke</span>. Она говорит, <span class="de">eins neunzig</span>. Я слышу «айнс» и даю один евро.</p>
           <p>Она смотрит на евро. Потом на меня. Говорит, <span class="de">noch neunzig Cent</span>. Даю второй евро. Молча. Как будто так и задумывал.</p>
         </article>
         <article class="slide">
+          <div class="scn" aria-hidden="true"><svg viewBox="0 0 240 124"><use href="#bun" x="100" y="26" width="40" height="32"/><path d="M92 46h56l7 66H85z" fill="#e7d2bf"/><path d="M92 46h56l1 8H91z" fill="#d7bea8"/><path d="M104 46c0-16 32-16 32 0" stroke="#b98a6e" stroke-width="4" fill="none"/><g class="swing"><line x1="144" y1="50" x2="166" y2="64" stroke="#99705a" stroke-width="1.5"/><rect x="160" y="62" width="48" height="24" rx="5" fill="#fff" stroke="#e0d4ef"/><circle cx="166" cy="68" r="2" fill="none" stroke="#99705a"/><text x="186" y="78" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-weight="600" font-size="11" fill="#d8453f">0,20 €</text></g></svg></div>
           <span class="num">05</span>
           <p>Потом спрашивает, <span class="de">brauchen Sie eine Tüte?</span> Говорю, <span class="de">ja</span>. Я уже на всё говорю <span class="de">ja</span>. Пакет, кстати, платный.</p>
           <p>Вышел. Съел булочку. Вкусная.</p>
@@ -609,6 +765,10 @@ footer{padding:28px 0 10px;text-align:center;font-size:12px;color:var(--muted)}
     <!-- STATS -->
     <section class="rv">
       <div class="stats">
+        <i class="fcoin" aria-hidden="true" style="--x:5%;--y:6%;--s:34px;--d:0s">€</i>
+        <i class="fcoin" aria-hidden="true" style="--x:84%;--y:4%;--s:44px;--d:-2s">€</i>
+        <i class="fcoin" aria-hidden="true" style="--x:90%;--y:44%;--s:26px;--d:-4s">¢</i>
+        <i class="fcoin" aria-hidden="true" style="--x:2%;--y:52%;--s:28px;--d:-3s">€</i>
         <h3><span>12 минут погружения</span>в немецкий магазин</h3>
         <div class="sgrid">
           <div><b data-count="8">8</b><small>фраз хватает<br>на любую кассу</small></div>
@@ -666,6 +826,7 @@ footer{padding:28px 0 10px;text-align:center;font-size:12px;color:var(--muted)}
             <span class="w-e">zwei</span><span class="w-euro">Euro</span>
             <span class="grp"><span class="w-u">neun</span><span class="w-und">und</span><span class="w-t">vierzig</span></span>
           </div>
+          <div class="coins" aria-hidden="true"><span class="coin eu">1€</span><span class="coin eu" style="--i:1">1€</span><span class="gap"></span><span class="coin ct" style="--i:2">20</span><span class="coin ct" style="--i:3">20</span><span class="coin cu" style="--i:4">5</span><span class="coin cu" style="--i:5">2</span><span class="coin cu" style="--i:6">2</span></div>
           <div class="hint3">Касса скажет просто: zwei neunundvierzig</div>
           <button class="say" type="button" id="priceSay" data-say="zwei Euro neunundvierzig"><svg><use href="#speaker"/></svg>Hören</button>
         </div>
@@ -699,9 +860,13 @@ footer{padding:28px 0 10px;text-align:center;font-size:12px;color:var(--muted)}
         <div class="ex-stage">
           <div class="lead-in">Ich hätte gern …</div>
           <div class="arts">
-            <button type="button" class="art m" data-say="Ich hätte gern einen Apfel."><span class="g">мужской</span><span class="w"><span class="flip"><span class="o">der</span><span class="n">einen</span></span><span>Apfel</span></span><span class="ru">яблоко</span></button>
-            <button type="button" class="art" data-say="Ich hätte gern eine Brezel."><span class="g">женский</span><span class="w"><span class="flip"><span class="o">die</span><span class="n">eine</span></span><span>Brezel</span></span><span class="ru">крендель</span></button>
-            <button type="button" class="art" data-say="Ich hätte gern ein Brötchen."><span class="g">средний</span><span class="w"><span class="flip"><span class="o">das</span><span class="n">ein</span></span><span>Brötchen</span></span><span class="ru">булочка</span></button>
+            <button type="button" class="art m" data-say="Ich hätte gern einen Apfel." data-add="einen Apfel"><svg class="pi" viewBox="0 0 60 60"><use href="#apple"/></svg><span class="g">мужской</span><span class="w"><span class="flip"><span class="o">der</span><span class="n">einen</span></span><span>Apfel</span></span><span class="ru">яблоко</span></button>
+            <button type="button" class="art" data-say="Ich hätte gern eine Brezel." data-add="eine Brezel"><svg class="pi" viewBox="0 0 60 60"><use href="#pretzel"/></svg><span class="g">женский</span><span class="w"><span class="flip"><span class="o">die</span><span class="n">eine</span></span><span>Brezel</span></span><span class="ru">крендель</span></button>
+            <button type="button" class="art" data-say="Ich hätte gern ein Brötchen." data-add="ein Brötchen"><svg class="pi" viewBox="0 0 70 56"><use href="#bun"/></svg><span class="g">средний</span><span class="w"><span class="flip"><span class="o">das</span><span class="n">ein</span></span><span>Brötchen</span></span><span class="ru">булочка</span></button>
+          </div>
+          <div class="basket-wrap">
+            <div class="basket-box"><svg class="basket" id="basket" viewBox="0 0 120 84" aria-hidden="true"><path d="M30 34c0-20 60-20 60 0" stroke="#b98a6e" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M8 34h104l-12 44H20z" fill="url(#gViolet)"/><path d="M8 34h104v8H8z" fill="#5e2ba3"/><path d="M34 46l3 26M60 46v26M86 46l-3 26M16 56h88" stroke="#fff" stroke-width="2.5" opacity=".45"/></svg><span class="bcount" id="bcount">0</span></div>
+            <div class="bnote" id="bnote" aria-live="polite">Нажми на товар — он полетит в корзину</div>
           </div>
         </div>
         <div class="cap" id="artCap"></div>
@@ -753,6 +918,7 @@ footer{padding:28px 0 10px;text-align:center;font-size:12px;color:var(--muted)}
               <div><b>Кассирша</b><small>Rewe · Kasse 3</small></div>
               <button type="button" class="tgl" id="simSound" aria-pressed="true">Звук вкл</button>
             </div>
+            <div class="lcd-row"><div class="scanlist" id="scanList"></div><div class="lcd" id="simLcdBox"><span>SUMME</span><b id="simLcd">0,00</b></div></div>
             <div class="log" id="simLog" aria-live="polite"></div>
             <div class="choices" id="simChoices"></div>
           </div>
@@ -804,6 +970,10 @@ footer{padding:28px 0 10px;text-align:center;font-size:12px;color:var(--muted)}
       <p class="lead"><b>Какой вариант выберешь ты?</b></p>
     </section>
 
+    <div class="ribbons" aria-hidden="true">
+      <div class="rib r2"><div class="track"><span>Goethe</span><b>✦</b><span>telc</span><b>✦</b><span>DTZ</span><b>✦</b><span>ÖSD</span><b>✦</b><span>TestDaF</span><b>✦</b><span>Notion</span><b>✦</b><span>Gemini</span><b>✦</b><span>Goethe</span><b>✦</b><span>telc</span><b>✦</b><span>DTZ</span><b>✦</b><span>ÖSD</span><b>✦</b><span>TestDaF</span><b>✦</b><span>Notion</span><b>✦</b><span>Gemini</span><b>✦</b></div></div>
+      <div class="rib r1"><div class="track"><span>Stellas</span><b>✦</b><span>A0 — C1</span><b>✦</b><span>340+ гайдов</span><b>✦</b><span>7500+ слов с озвучкой</span><b>✦</b><span>офлайн</span><b>✦</b><span>навсегда</span><b>✦</b><span>Stellas</span><b>✦</b><span>A0 — C1</span><b>✦</b><span>340+ гайдов</span><b>✦</b><span>7500+ слов с озвучкой</span><b>✦</b><span>офлайн</span><b>✦</b><span>навсегда</span><b>✦</b></div></div>
+    </div>
     <!-- ===== AD ===== -->
     <section class="sheet rv" id="about">
       <div class="about">
@@ -879,7 +1049,7 @@ footer{padding:28px 0 10px;text-align:center;font-size:12px;color:var(--muted)}
       <p class="eyebrow">Живая запись экрана</p>
       <h2 class="h2"><span class="l">Так выглядит</span> <span class="b">гайд «Супермаркет»</span></h2>
       <p class="lead">Та же тема, что в этом уроке. Только на платформе у неё ещё словарь, история, диалоги, тест и симулятор кассы.</p>
-      <div class="laptop">
+      <div class="laptop" id="laptop">
         <div class="screen"><video src="media/supermarket.mp4" poster="media/supermarket.jpg" muted autoplay loop playsinline preload="metadata" aria-label="Запись экрана: гайд Супермаркет в Gemini"></video></div>
         <div class="base"></div>
       </div>
@@ -975,6 +1145,10 @@ footer{padding:28px 0 10px;text-align:center;font-size:12px;color:var(--muted)}
     </section>
 
     <section class="final rv">
+      <i class="fcoin" aria-hidden="true" style="--x:6%;--y:10%;--s:40px;--d:0s">€</i>
+      <i class="fcoin" aria-hidden="true" style="--x:86%;--y:16%;--s:30px;--d:-2.5s">€</i>
+      <i class="fcoin" aria-hidden="true" style="--x:80%;--y:74%;--s:46px;--d:-4s">€</i>
+      <i class="fcoin" aria-hidden="true" style="--x:4%;--y:80%;--s:26px;--d:-1s">¢</i>
       <h2>Спросить цену ты уже умеешь</h2>
       <div class="kasse">
         <div>Ты: <span class="de">Was kostet die Plattform?</span></div>
@@ -1053,8 +1227,9 @@ footer{padding:28px 0 10px;text-align:center;font-size:12px;color:var(--muted)}
   var track = $('#storyTrack'), slides = $$('.slide', track), prev = $('#storyPrev'), next = $('#storyNext'), now = $('#storyNow');
   function perView(){ return innerWidth >= 760 ? 2 : 1; }
   function idx(){ var w = slides[0].getBoundingClientRect().width + 16; return Math.round(track.scrollLeft / w); }
-  function upd(){ var i = idx(), last = slides.length - perView(); now.textContent = ('0' + Math.min(slides.length, i + 1)).slice(-2); prev.disabled = i <= 0; next.disabled = i >= last; }
-  function go(d){ var w = slides[0].getBoundingClientRect().width + 16; track.scrollTo({left:(idx()+d)*w, behavior: RM ? 'auto' : 'smooth'}); }
+  function upd(){ var w0 = slides[0].getBoundingClientRect().width + 16; if(target !== null && Math.abs(track.scrollLeft - target * w0) < 3) target = null; var i = target === null ? idx() : target, last = slides.length - perView(); now.textContent = ('0' + Math.min(slides.length, i + 1)).slice(-2); prev.disabled = i <= 0; next.disabled = i >= last; }
+  var target = null;
+  function go(d){ var w = slides[0].getBoundingClientRect().width + 16, base = target === null ? idx() : target; target = Math.max(0, Math.min(slides.length - perView(), base + d)); track.scrollTo({left:target*w, behavior: RM ? 'auto' : 'smooth'}); }
   prev.addEventListener('click', function(){ go(-1); });
   next.addEventListener('click', function(){ go(1); });
   track.addEventListener('scroll', function(){ requestAnimationFrame(upd); }, {passive:true});
@@ -1288,6 +1463,103 @@ footer{padding:28px 0 10px;text-align:center;font-size:12px;color:var(--muted)}
     ['Уйти','Danke, gleichfalls!','Спасибо, и вам того же!']
   ];
   $('#cards').innerHTML = CS.map(function(c){ return '<div class="card"><span class="k">'+c[0]+'</span><span class="d">'+c[1]+'</span><span class="r">'+c[2]+'</span><button class="say" type="button" data-say="'+c[1]+'">'+sp()+'Hören</button></div>'; }).join('');
+
+
+  /* ===== v2 motion ===== */
+  function fmtE(v){ return v.toFixed(2).replace('.', ','); }
+  /* scroll progress */
+  var prog = $('#prog'), ticking = false;
+  function onScroll(){
+    ticking = false;
+    var h = document.documentElement.scrollHeight - innerHeight;
+    prog.style.transform = 'scaleX(' + (h > 0 ? Math.min(1, scrollY / h) : 0) + ')';
+  }
+  addEventListener('scroll', function(){ if(!ticking){ ticking = true; requestAnimationFrame(onScroll); } }, {passive:true});
+  onScroll();
+
+  /* ribbons: duplicate for seamless loop */
+  $$('.track').forEach(function(t){ t.innerHTML += t.innerHTML; });
+
+  /* belt register total (synced to beam flashes every 2s) */
+  var BELT = [0.49, 0.95, 1.19, 2.29], beltN = 0, beltSum = BELT[0], beam = $('#beam'), beltLcd = $('#beltLcd');
+  if(beam && !RM){
+    beam.addEventListener('animationiteration', function(){
+      beltN = (beltN + 1) % 4;
+      beltSum = beltN === 0 ? BELT[0] : beltSum + BELT[beltN];
+      $('#beltSum').textContent = fmtE(beltSum);
+      beltLcd.classList.remove('flash'); void beltLcd.offsetWidth; beltLcd.classList.add('flash');
+    });
+  } else if(beam){ $('#beltSum').textContent = '4,92'; }
+
+  /* basket: fly items in */
+  var bcount = 0, basket = $('#basket');
+  $$('.art[data-add]').forEach(function(card){
+    card.addEventListener('click', function(){
+      var pi = $('.pi', card), a = pi.getBoundingClientRect(), b = basket.getBoundingClientRect();
+      function land(){
+        bcount++; $('#bcount').textContent = bcount;
+        basket.classList.remove('wob'); void basket.getBoundingClientRect(); basket.classList.add('wob');
+        $('#bnote').textContent = 'Ich hätte gern ' + card.getAttribute('data-add') + '. ✓';
+      }
+      if(RM || !Element.prototype.animate){ land(); return; }
+      var f = pi.cloneNode(true); f.classList.add('flyer'); f.style.left = a.left + 'px'; f.style.top = a.top + 'px'; document.body.appendChild(f);
+      var dx = b.left + b.width / 2 - (a.left + a.width / 2), dy = b.top + b.height * .45 - (a.top + a.height / 2);
+      var anim = f.animate([
+        {transform:'translate(0,0) scale(1) rotate(0)'},
+        {transform:'translate(' + dx * .55 + 'px,' + (Math.min(dy, 0) - 70) + 'px) scale(1.15) rotate(-20deg)', offset:.5},
+        {transform:'translate(' + dx + 'px,' + dy + 'px) scale(.45) rotate(10deg)', opacity:.3}
+      ], {duration:850, easing:'cubic-bezier(.3,.6,.3,1)'});
+      anim.onfinish = function(){ f.remove(); land(); };
+    });
+  });
+
+  /* timeline: light up as you scroll */
+  var tl = $('#tl');
+  if('IntersectionObserver' in window && !RM){
+    tl.classList.add('anim');
+    var tio = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('reached'); tio.unobserve(e.target); } }); }, {rootMargin:'0px 0px -35% 0px'});
+    $$('.tl-item', tl).forEach(function(it){ tio.observe(it); });
+  }
+
+  /* simulator register */
+  var SCAN = [['Äpfel',2.49],['Brot',2.19],['Butter',2.29],['Hafermilch',0.83]], scanned = false, lcdBox = $('#simLcdBox');
+  function runScan(){
+    if(scanned) return; scanned = true;
+    var tot = 0;
+    SCAN.forEach(function(it,k){
+      setTimeout(function(){
+        tot += it[1];
+        var s = document.createElement('span'); s.textContent = it[0] + ' ' + fmtE(it[1]); $('#scanList').appendChild(s);
+        $('#simLcd').textContent = fmtE(tot);
+        lcdBox.classList.remove('flash'); void lcdBox.offsetWidth; lcdBox.classList.add('flash');
+      }, RM ? 0 : 350 + k * 650);
+    });
+  }
+  if('IntersectionObserver' in window){
+    var sio = new IntersectionObserver(function(es){ if(es[0].isIntersecting){ runScan(); sio.disconnect(); } }, {threshold:.4});
+    sio.observe($('.phone'));
+  } else runScan();
+  ch.addEventListener('click', function(){
+    if(sIdx >= 3 && !lcdBox.classList.contains('paid')){ lcdBox.classList.add('paid'); $('#simLcd').textContent = 'BEZAHLT ✓'; lcdBox.querySelector('span').textContent = 'KARTE'; }
+  });
+  document.addEventListener('click', function(e){
+    if(e.target.id === 'simAgain'){ lcdBox.classList.remove('paid'); lcdBox.querySelector('span').textContent = 'SUMME'; $('#simLcd').textContent = '7,80'; }
+  });
+
+  /* laptop: flatten when it scrolls in */
+  var lap = $('#laptop');
+  if('IntersectionObserver' in window && !RM){
+    lap.classList.add('tilt');
+    new IntersectionObserver(function(es){ es.forEach(function(e){ lap.classList.toggle('tilt', !e.isIntersecting); }); }, {threshold:.35}).observe(lap);
+  }
+
+  /* pricing tilt (mouse only) */
+  if(window.matchMedia && matchMedia('(hover:hover) and (pointer:fine)').matches && !RM){
+    $$('.tar').forEach(function(c){
+      c.addEventListener('pointermove', function(e){ var r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5; c.style.transform = 'perspective(900px) rotateY(' + x * 8 + 'deg) rotateX(' + (-y * 8) + 'deg) translateY(-4px)'; });
+      c.addEventListener('pointerleave', function(){ c.style.transform = ''; });
+    });
+  }
 
   /* ---------- sticky CTA ---------- */
   var sticky = $('#sticky'), pastHero = false, atPrice = false;
